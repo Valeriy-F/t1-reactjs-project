@@ -1,17 +1,9 @@
 .content-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 25% 75%;
     column-gap: 20px;
 }
 
 .title {
-    padding: 20px 0;
-}
-
-.filters {
-    width: 30%;
-    border: 1px solid #000;
-}
-
-.product-list {
-    width: 70%;
+    margin: 0 0 20px 0;
 }

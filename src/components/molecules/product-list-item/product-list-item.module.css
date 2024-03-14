@@ -1,5 +1,9 @@
-.base {
+.container {
     display: flex;
     flex-direction: column;
     row-gap: 5px;
+}
+
+.image {
+    border-radius: 10px;
 }

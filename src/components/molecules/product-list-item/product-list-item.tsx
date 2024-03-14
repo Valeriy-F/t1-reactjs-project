@@ -11,7 +11,7 @@ type TProductListItemProps = {
 
 const ProductListItem = ({ title, price, imageData }: TProductListItemProps) => {
   return (
-    <div className={styles.base}>
+    <div className={styles.container}>
       <div>
         <Image {...imageData} />
       </div>

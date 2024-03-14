@@ -2,11 +2,6 @@
     cursor: pointer;
 }
 
-.variant-button {
-    min-width: 100px;
-    border-radius: 4px;
-}
-
 .color-primary {
     color: var(--text-color-secondary);
     background-color: var(--color-gray);
@@ -23,6 +18,16 @@
     color: var(--text-color-secondary);
     background-color: var(--color-orange);
     border: 1px solid var(--color-orange);
+}
+
+.variant-button {
+    min-width: 100px;
+    border-radius: var(--border-radius);
+}
+
+.variant-link {
+    min-width: 100px;
+    border: none;
 }
 
 .size-lg {

@@ -9,7 +9,7 @@ type TProductListProps = {
 
 const ProductList = ({ productData = [] }: TProductListProps) => {
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.list}>
         {productData.map((product) => (
           <ProductListItem key={product.title} {...product} />

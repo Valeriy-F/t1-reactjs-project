@@ -9,6 +9,8 @@
     --color-white: #FFFFFF;
     --color-purple-blue: #484283;
     --color-orange: #F14F4F;
+    --color-yellow: #FFF4EE;
+    --color-brown-light: #DBBBA9;
 
     --text-color-primary: var(--color-gray);
     --text-color-secondary: var(--color-white);
@@ -23,4 +25,6 @@
     --border-thickness-1: 1px;
     --border-thickness-2: 2px;
     --border-thickness-3: 3px;
+
+    --border-radius: 4px;
 }

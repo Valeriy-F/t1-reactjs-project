@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import Typography, { ETypographyVariant } from "../../atoms/typography/typography";
 import { TProductListItemProps } from "../../molecules/product-list-item/product-list-item";
+import ProductFilter from "../product-filter/product-filter";
 import ProductList from "../product-list/product-list";
 
 import styles from "./catalog.module.css";
@@ -39,17 +40,19 @@ const Catalog = () => {
   }, []);
 
   return (
-    <section className="container">
+    <div className="container">
       <div className={styles.title}>
         <Typography variant={ETypographyVariant.H2}>Catalog</Typography>
       </div>
       <div className={styles["content-container"]}>
-        <div className={styles.filters}>Filters will be here</div>
-        <div className={styles["product-list"]}>
+        <div>
+          <ProductFilter />
+        </div>
+        <div>
           <ProductList productData={products} />
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

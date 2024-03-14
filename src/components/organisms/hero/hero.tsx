@@ -5,7 +5,7 @@ import styles from "./hero.module.css";
 
 const Hero = () => {
   return (
-    <section className={styles.hero}>
+    <div className={styles.hero}>
       <div className="container">
         <div className={styles.title}>
           <Typography variant={ETypographyVariant.H1} color="secondary">
@@ -23,7 +23,7 @@ const Hero = () => {
           </Button>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
