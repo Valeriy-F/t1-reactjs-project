@@ -1,0 +1,21 @@
+:root {
+    --color-gray: #444B58;
+    --color-gray-light: #808080;
+    --color-white: #FFFFFF;
+    --color-purple-blue: #484283;
+    --color-orange: #F14F4F;
+
+    --text-color-primary: var(--color-gray);
+    --text-color-secondary: var(--color-white);
+
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.25rem;
+
+    --border-color-primary: var(--color-gray-light);
+    --border-color-secondary: var(--color-white);
+    --border-color-secondary-alpha50: rgba(255, 255, 255, 0.5);
+    --border-thickness-1: 1px;
+    --border-thickness-2: 2px;
+    --border-thickness-3: 3px;
+}

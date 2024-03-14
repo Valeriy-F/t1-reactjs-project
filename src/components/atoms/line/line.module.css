@@ -1,0 +1,30 @@
+.border {
+    border-bottom: solid;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+.color-primary {
+    border-color: var(--border-color-primary);
+}
+
+.color-secondary {
+    border-color: var(--border-color-secondary);
+}
+
+.color-secondary-alpha50 {
+    border-color: var(--border-color-secondary-alpha50);
+}
+
+.thickness-1 {
+    border-width: var(--border-thickness-1);
+}
+
+.thickness-2 {
+    border-width: var(--border-thickness-2);
+}
+
+.thickness-3 {
+    border-width: var(--border-thickness-3);
+}

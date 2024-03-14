@@ -1,0 +1,64 @@
+.variant-h1 {
+    font-size: 2.25rem;
+    font-weight: 100;
+}
+
+.variant-h2 {
+    font-size: 1.875rem;
+    font-weight: 900;
+}
+
+.variant-h3 {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.variant-h4 {
+    font-size: 1.25rem;
+    font-weight: 900;
+}
+
+.variant-h5 {
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.variant-h6 {
+    font-size: 0.875rem;
+    font-weight: 900;
+}
+
+.variant-text {
+    font-size: 1rem;
+}
+
+.variant-text_bold {
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.variant-text-sm {
+    font-size: 0.875rem;
+}
+
+.variant-text-sm_bold {
+    font-size: 0.875rem;
+    font-weight: 900;
+}
+
+.variant-text-lg {
+    font-size: 0.875rem;
+}
+
+.variant-text-lg_bold {
+    font-size: 0.875rem;
+    font-weight: 900;
+}
+
+.color-primary {
+    color: var(--text-color-primary)
+}
+
+.color-secondary {
+    color: var(--text-color-secondary)
+}

@@ -1,0 +1,31 @@
+.base {
+    cursor: pointer;
+}
+
+.variant-button {
+    min-width: 100px;
+    border-radius: 4px;
+}
+
+.color-primary {
+    color: var(--text-color-secondary);
+    background-color: var(--color-gray);
+    border: 1px solid var(--color-gray);
+}
+
+.color-primary-transparent {
+    color: var(--text-color-primary);
+    background: none;
+    border: 1px solid var(--color-gray);
+}
+
+.color-secondary {
+    color: var(--text-color-secondary);
+    background-color: var(--color-orange);
+    border: 1px solid var(--color-orange);
+}
+
+.size-lg {
+    padding: 22px 47px;
+}
+

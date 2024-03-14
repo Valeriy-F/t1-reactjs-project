@@ -1,0 +1,23 @@
+.hero {
+    background-color: var(--color-purple-blue);
+    background-image: url('../../../images/img_hero_bg.png');
+    background-repeat: no-repeat;
+    background-position: center top 270px;
+    height: 528px;
+    padding: 165px 0;
+}
+
+.title {
+    width: 560px;
+    padding: 10px 0;
+}
+
+.subtitle {
+    width: 350px;
+    padding: 10px 0;
+}
+
+.actions {
+    margin: 15px 0;
+    padding: 10px;
+}
