@@ -34,7 +34,7 @@
 
 .variant-text_bold {
     font-size: 1rem;
-    font-weight: 900;
+    font-weight: 600;
 }
 
 .variant-text-sm {
@@ -43,16 +43,16 @@
 
 .variant-text-sm_bold {
     font-size: 0.875rem;
-    font-weight: 900;
+    font-weight: 600;
 }
 
 .variant-text-lg {
-    font-size: 0.875rem;
+    font-size: 1.25rem;
 }
 
 .variant-text-lg_bold {
-    font-size: 0.875rem;
-    font-weight: 900;
+    font-size: 1.25rem;
+    font-weight: 600;
 }
 
 .color-primary {

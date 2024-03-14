@@ -1,4 +1,9 @@
 :root {
+    --viewport-breakpoint-xs: 575px;
+    --viewport-breakpoint-sm: 767px;
+    --viewport-breakpoint-md: 991px;
+    --viewport-breakpoint-lg: 1199px;
+
     --color-gray: #444B58;
     --color-gray-light: #808080;
     --color-white: #FFFFFF;

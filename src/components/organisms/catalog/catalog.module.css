@@ -1,0 +1,17 @@
+.content-container {
+    display: flex;
+    column-gap: 20px;
+}
+
+.title {
+    padding: 20px 0;
+}
+
+.filters {
+    width: 30%;
+    border: 1px solid #000;
+}
+
+.product-list {
+    width: 70%;
+}

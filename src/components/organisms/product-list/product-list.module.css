@@ -1,0 +1,12 @@
+.list {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 20px;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}

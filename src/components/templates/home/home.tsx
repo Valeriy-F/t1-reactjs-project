@@ -1,3 +1,4 @@
+import Catalog from "../../organisms/catalog/catalog";
 import Header from "../../organisms/header/header";
 import Hero from "../../organisms/hero/hero";
 
@@ -20,6 +21,7 @@ const Home = () => {
       </header>
       <main>
         <Hero />
+        <Catalog />
       </main>
       <footer></footer>
     </>
