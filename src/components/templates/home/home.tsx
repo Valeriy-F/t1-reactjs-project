@@ -1,6 +1,9 @@
+import About from "../../organisms/about/about";
 import Catalog from "../../organisms/catalog/catalog";
 import Header from "../../organisms/header/header";
 import Hero from "../../organisms/hero/hero";
+
+import styles from "./home.module.css";
 
 const menuItems = [
   { title: "Catalog", url: "#" },
@@ -20,8 +23,15 @@ const Home = () => {
         </div>
       </header>
       <main>
-        <Hero />
-        <Catalog />
+        <section>
+          <Hero />
+        </section>
+        <section className={styles["catalog-section"]}>
+          <Catalog />
+        </section>
+        <section>
+          <About />
+        </section>
       </main>
       <footer></footer>
     </>

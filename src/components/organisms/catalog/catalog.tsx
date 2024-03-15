@@ -17,13 +17,13 @@ const fetchProducts = async (quantity: number) => {
       title,
       price: `${i * 10} $`,
       imageData: {
-        src: "images/product@4x.jpg",
+        src: "images/products/product@1x.webp",
         alt: title,
         srcSetData: {
-          xs: "images/product@1x.jpg",
-          sm: "images/product@1.5x.jpg",
-          md: "images/product@2x.jpg",
-          lg: "images/product@3x.jpg",
+          xl: "images/products/product@4x.webp",
+          lg: "images/products/product@3x.webp",
+          md: "images/products/product@2x.webp",
+          sm: "images/products/product@1x.webp",
         },
       },
     });

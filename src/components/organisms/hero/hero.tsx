@@ -6,7 +6,7 @@ import styles from "./hero.module.css";
 const Hero = () => {
   return (
     <div className={styles.hero}>
-      <div className="container">
+      <div className={`container ${styles["content-container"]}`}>
         <div className={styles.title}>
           <Typography variant={ETypographyVariant.H1} color="secondary">
             Any products from famous brands with worldwide delivery
