@@ -59,6 +59,10 @@
     color: var(--text-color-primary)
 }
 
+.color-primary-light {
+    color: var(--text-color-primary-light)
+}
+
 .color-secondary {
     color: var(--text-color-secondary)
 }

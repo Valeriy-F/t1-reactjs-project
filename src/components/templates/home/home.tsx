@@ -2,6 +2,7 @@ import About from "../../organisms/about/about";
 import Catalog from "../../organisms/catalog/catalog";
 import Header from "../../organisms/header/header";
 import Hero from "../../organisms/hero/hero";
+import Quiz from "../../organisms/quiz/quiz";
 
 import styles from "./home.module.css";
 
@@ -31,6 +32,9 @@ const Home = () => {
         </section>
         <section>
           <About />
+        </section>
+        <section className={styles["quiz-section"]}>
+          <Quiz />
         </section>
       </main>
       <footer></footer>

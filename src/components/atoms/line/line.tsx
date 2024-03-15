@@ -1,11 +1,11 @@
 import styles from "./line.module.css";
 
 type TLineProps = {
-  color: "primary" | "secondary" | "secondary-alpha50";
+  color?: "primary" | "primary-light" | "secondary" | "secondary-alpha50";
   thickness?: 1 | 2 | 3;
 };
 
-const Line = ({ color, thickness = 1 }: TLineProps) => {
+const Line = ({ color = "primary", thickness = 1 }: TLineProps) => {
   const styleColor = styles[`color-${color}`];
   const styleThickness = styles[`thickness-${thickness}`];
 
