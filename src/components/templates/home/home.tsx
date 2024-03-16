@@ -1,3 +1,4 @@
+import Footer from "../../organisms/footer/footer";
 import Header from "../../organisms/header/header";
 import About from "../../organisms/sections/about/about";
 import Catalog from "../../organisms/sections/catalog/catalog";
@@ -7,7 +8,7 @@ import Team from "../../organisms/sections/team/team";
 
 import styles from "./home.module.css";
 
-const menuItems = [
+const headerMenuItems = [
   { title: "Catalog", url: "#" },
   { title: "About us", url: "#" },
   { title: "Product selection", url: "#" },
@@ -16,12 +17,20 @@ const menuItems = [
   { title: "For staff", url: "#" },
 ];
 
+const footerMenuItems = [
+  { title: "Catalog", url: "#" },
+  { title: "About us", url: "#" },
+  { title: "Product selection", url: "#" },
+  { title: "Our team", url: "#" },
+  { title: "FAQ", url: "#" },
+];
+
 const Home = () => {
   return (
     <>
       <header className="header">
         <div className="container">
-          <Header menuItems={menuItems} />
+          <Header menuItems={headerMenuItems} />
         </div>
       </header>
       <main>
@@ -51,7 +60,11 @@ const Home = () => {
           </div>
         </section>
       </main>
-      <footer></footer>
+      <footer className="footer">
+        <div className="container">
+          <Footer menuItems={footerMenuItems} />
+        </div>
+      </footer>
     </>
   );
 };
