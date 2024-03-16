@@ -13,7 +13,7 @@ const ProductListItem = ({ title, price, imageData }: TProductListItemProps) => 
   return (
     <div className={styles.container}>
       <div>
-        <Image {...imageData} />
+        <Image className={styles["product-image"]} {...imageData} />
       </div>
       <div>
         <Typography variant={ETypographyVariant.TEXT_BOLD}>{title}</Typography>

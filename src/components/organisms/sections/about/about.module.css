@@ -1,15 +1,7 @@
-.about {
-    background-color: var(--color-purple-blue);
-    background-image: url('../../../images/about_bg_figure.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left top;
-}
-
 .content-container {
     height: 580px;
     padding: 222px 0 0;
-    background-image: url('../../../images/about_bg@4x.webp');
+    background-image: url('../../../../images/about_bg@4x.webp');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right bottom;
@@ -32,18 +24,18 @@
 
 @media (max-width: 991px) {
     .content-container {
-        background-image: url('../../../images/about_bg@3x.webp');
+        background-image: url('../../../../images/about_bg@3x.webp');
     }
 }
 
 @media (max-width: 767px) {
     .content-container {
-        background-image: url('../../../images/about_bg@2x.webp');
+        background-image: url('../../../../images/about_bg@2x.webp');
     }
 }
 
 @media (max-width: 575px) {
     .content-container {
-        background-image: url('../../../images/about_bg@1x.webp');
+        background-image: url('../../../../images/about_bg@1x.webp');
     }
 }

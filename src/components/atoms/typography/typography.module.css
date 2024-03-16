@@ -55,6 +55,15 @@
     font-weight: 600;
 }
 
+.variant-text-xl {
+    font-size: 1.5rem;
+}
+
+.variant-text-xl_bold {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
 .color-primary {
     color: var(--text-color-primary)
 }

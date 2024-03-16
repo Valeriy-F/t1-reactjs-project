@@ -4,6 +4,6 @@
     row-gap: 5px;
 }
 
-.image {
-    border-radius: 10px;
+.product-image {
+    border-radius: var(--border-radius);
 }

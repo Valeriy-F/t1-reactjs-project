@@ -1,9 +1,9 @@
 import { ReactElement, useEffect, useState } from "react";
 
-import Button from "../../atoms/button/button";
-import Checkbox from "../../atoms/checkbox/checkbox";
-import Line from "../../atoms/line/line";
-import Typography, { ETypographyVariant } from "../../atoms/typography/typography";
+import Button from "../../../atoms/button/button";
+import Checkbox from "../../../atoms/checkbox/checkbox";
+import Line from "../../../atoms/line/line";
+import Typography, { ETypographyVariant } from "../../../atoms/typography/typography";
 
 import styles from "./quiz.module.css";
 
@@ -33,7 +33,7 @@ const Quiz = () => {
   }, []);
 
   return (
-    <div className={`container ${styles["content-container"]}`}>
+    <div className={styles["content-container"]}>
       <div className={styles.header}>
         <div>
           <Typography variant={ETypographyVariant.H2}>We will select the perfect product for you</Typography>

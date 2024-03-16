@@ -1,8 +1,9 @@
-import About from "../../organisms/about/about";
-import Catalog from "../../organisms/catalog/catalog";
 import Header from "../../organisms/header/header";
-import Hero from "../../organisms/hero/hero";
-import Quiz from "../../organisms/quiz/quiz";
+import About from "../../organisms/sections/about/about";
+import Catalog from "../../organisms/sections/catalog/catalog";
+import Hero from "../../organisms/sections/hero/hero";
+import Quiz from "../../organisms/sections/quiz/quiz";
+import Team from "../../organisms/sections/team/team";
 
 import styles from "./home.module.css";
 
@@ -24,17 +25,30 @@ const Home = () => {
         </div>
       </header>
       <main>
-        <section>
-          <Hero />
+        <section className={styles["hero-section"]}>
+          <div className="container">
+            <Hero />
+          </div>
         </section>
         <section className={styles["catalog-section"]}>
-          <Catalog />
+          <div className="container">
+            <Catalog />
+          </div>
         </section>
-        <section>
-          <About />
+        <section className={styles["about-section"]}>
+          <div className="container">
+            <About />
+          </div>
         </section>
         <section className={styles["quiz-section"]}>
-          <Quiz />
+          <div className="container">
+            <Quiz />
+          </div>
+        </section>
+        <section className={styles["team-section"]}>
+          <div className="container">
+            <Team />
+          </div>
         </section>
       </main>
       <footer></footer>

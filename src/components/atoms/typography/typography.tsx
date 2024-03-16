@@ -22,6 +22,8 @@ enum ETypographyVariant {
   TEXT_SM_BOLD = "text-sm_bold",
   TEXT_LG = "text-lg",
   TEXT_LG_BOLD = "text-lg_bold",
+  TEXT_XL = "text-xl",
+  TEXT_XL_BOLD = "text-xl_bold",
 }
 
 const Typography = ({ children, variant = ETypographyVariant.TEXT, color = "primary" }: TTypographyProps) => {

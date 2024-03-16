@@ -1,0 +1,29 @@
+.grid {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.grid__column-odd,
+.grid__column-even {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    row-gap: 20px;
+}
+
+.grid__column-even {
+    padding: 100px 0 0;
+}
+
+.grid__cell {
+    display: grid;
+    grid: 1fr / 1fr;
+    justify-items: center;
+    align-items: center;
+
+    width: 380px;
+    height: 400px;
+    cursor: pointer;
+}

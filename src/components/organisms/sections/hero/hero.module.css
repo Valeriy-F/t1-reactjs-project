@@ -1,9 +1,5 @@
-.hero {
-    background-color: var(--color-purple-blue);
-}
-
 .content-container {
-    background-image: url('../../../images/hero_bg@4x.webp');
+    background-image: url('../../../../images/hero_bg@4x.webp');
     background-size: 95%;
     background-repeat: no-repeat;
     background-position: center bottom 55px;
@@ -30,18 +26,18 @@
 
 @media (max-width: 991px) {
     .content-container {
-        background-image: url('../../../images/hero_bg@3x.webp');
+        background-image: url('../../../../images/hero_bg@3x.webp');
     }
 }
 
 @media (max-width: 767px) {
     .content-container {
-        background-image: url('../../../images/hero_bg@2x.webp');
+        background-image: url('../../../../images/hero_bg@2x.webp');
     }
 }
 
 @media (max-width: 575px) {
     .content-container {
-        background-image: url('../../../images/hero_bg@1x.webp');
+        background-image: url('../../../../images/hero_bg@1x.webp');
     }
 }
