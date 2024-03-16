@@ -1,5 +1,6 @@
 import { HTMLAttributes } from "react";
 
+import { toKey } from "../../../utils/string-util";
 import Logo from "../../atoms/logo/logo";
 import Typography, { ETypographyVariant } from "../../atoms/typography/typography";
 
@@ -19,12 +20,12 @@ const NavMenu = ({ items, className, ...otherProps }: TNavMenuProps) => {
 
   return (
     <nav className={styles["nav-menu"] + extraClasses} {...otherProps}>
-      <a href="#" className="logo">
+      <a href="#" className={styles["link-logo"]}>
         <Logo />
       </a>
       <ul className={styles["menu"]}>
         {items.map(({ title, url }) => (
-          <li key={title.replace(" ", "-").toLowerCase()} className="menu-item">
+          <li key={toKey(title)} className="menu-item">
             <a href={url}>
               <Typography variant={ETypographyVariant.TEXT_SM_BOLD} color="secondary">
                 {title}

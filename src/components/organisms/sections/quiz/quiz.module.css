@@ -4,6 +4,7 @@
     row-gap: 20px;
     background-color: var(--color-yellow);
     padding: 40px 100px;
+    border-radius: var(--border-radius);
 }
 
 .header {

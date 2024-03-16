@@ -1,0 +1,38 @@
+.content-container {
+    padding: 27px 0;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.content {
+    overflow: hidden;
+    max-height: 0px;
+    transition: max-height 1s cubic-bezier(0, 1, 0, 1);
+}
+
+.open {
+    ~.content {
+        transition: max-height 2s ease-in-out;
+        max-height: 1000px;
+    }
+}
+
+.closed {
+    & .toggle-button {
+        transform: rotate(45deg);
+    }
+}
+
+.toggle-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
