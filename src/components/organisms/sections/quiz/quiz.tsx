@@ -1,5 +1,6 @@
 import { ReactElement, useEffect, useState } from "react";
 
+import { TypographyVariant } from "../../../atoms";
 import Button from "../../../atoms/button/button";
 import Checkbox from "../../../atoms/checkbox/checkbox";
 import Line from "../../../atoms/line/line";
@@ -17,7 +18,7 @@ const fetchQuizChoiceList = async (limit: number) => {
 
   for (let i = 1; i <= limit; i++) {
     choiceList.push({
-      label: <Typography variant={ETypographyVariant.TEXT_BOLD}>{`Sneakers ${i}`}</Typography>,
+      label: <Typography variant={ETypographyVariant.TEXT_BOLD}>{`sneakers`}</Typography>,
       value: `sneakers_${i}`,
     });
   }
@@ -39,14 +40,16 @@ const Quiz = () => {
           <Typography variant={ETypographyVariant.H2}>We will select the perfect product for you</Typography>
         </div>
         <div>
-          <Typography color="primary-light">
+          <Typography variant={TypographyVariant.TEXT_BOLD} color="primary-light">
             Answer three questions and we will send you a catalog with the most suitable products for you.
           </Typography>
           <Line color="primary-light" />
         </div>
       </div>
       <div className={styles.body}>
-        <Typography variant={ETypographyVariant.H3}>What type of product are you considering?</Typography>
+        <div className={styles["body__title"]}>
+          <Typography variant={ETypographyVariant.H3}>What type of product are you considering?</Typography>
+        </div>
         <div className={styles["choice-list"]}>
           {choices.map(({ label, value }) => (
             <div key={value}>

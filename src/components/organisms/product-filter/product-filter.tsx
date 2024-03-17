@@ -8,18 +8,21 @@ const ProductFilter = () => {
   return (
     <div className={styles.container}>
       <div>
-        <Typography variant={ETypographyVariant.H3}>Selection by parameters</Typography>
+        <Typography variant={ETypographyVariant.H3}>Selection</Typography>
+        <Typography variant={ETypographyVariant.H3}>by parameters</Typography>
       </div>
       <div className={styles["filter-container"]}>
         <Typography variant={ETypographyVariant.TEXT_BOLD}>Category</Typography>
         <CategoryFilter
           filters={[
-            { label: "sneakers", value: "filter_1" },
-            { label: "sneakers", value: "filter_2" },
+            { label: "smartphones", value: "filter_1" },
+            { label: "laptops", value: "filter_2" },
             { label: "sneakers", value: "filter_3" },
             { label: "sneakers", value: "filter_4" },
             { label: "sneakers", value: "filter_5" },
             { label: "sneakers", value: "filter_6" },
+            { label: "sneakers", value: "filter_7" },
+            { label: "sneakers", value: "filter_8" },
           ]}
         />
       </div>

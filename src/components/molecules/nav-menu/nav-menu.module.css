@@ -8,6 +8,7 @@
 .menu {
     display: flex;
     column-gap: 36px;
+    padding: 0 1px 0;
 }
 
 .link-logo {

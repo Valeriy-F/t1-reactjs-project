@@ -1,10 +1,10 @@
 .content-container {
-    background-image: url('../../../../images/hero_bg@4x.webp');
-    background-size: 95%;
+    background-image: url('../../../../images/hero_bg@3x.webp');
+    background-size: 89%;
     background-repeat: no-repeat;
-    background-position: center bottom 55px;
+    background-position: left 50px bottom 73px;
     height: 528px;
-    padding: 165px 0;
+    padding: 152px 0;
 }
 
 .title {
@@ -14,12 +14,12 @@
 
 .subtitle {
     width: 350px;
-    padding: 10px 0;
+    padding: 6px 0;
 }
 
 .actions {
     margin: 15px 0;
-    padding: 10px;
+    padding: 16px;
 }
 
 @media (max-width: 1199px) {}

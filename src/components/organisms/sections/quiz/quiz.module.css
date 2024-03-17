@@ -16,13 +16,19 @@
 .body {
     display: flex;
     flex-direction: column;
-    row-gap: 33px;
+    row-gap: 35px;
+}
+
+.body__title {
+    padding: 2px 0;
 }
 
 .choice-list {
     display: grid;
     grid-template-columns: repeat(4, auto);
-    row-gap: 28px;
+    row-gap: 29px;
+    column-gap: 167px;
+    justify-content: start;
     align-items: center;
 }
 
@@ -32,7 +38,7 @@
     grid-template-rows: auto auto;
     row-gap: 20px;
     align-items: center;
-    padding: 40px 0 0;
+    padding: 36px 0 0;
 }
 
 .footer__border-top {

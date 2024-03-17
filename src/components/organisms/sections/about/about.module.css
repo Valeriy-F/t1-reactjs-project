@@ -1,6 +1,6 @@
 .content-container {
     height: 580px;
-    padding: 222px 0 0;
+    padding: 222px 0 0 3px;
     background-image: url('../../../../images/about_bg@4x.webp');
     background-size: contain;
     background-repeat: no-repeat;
@@ -8,16 +8,16 @@
 }
 
 .title {
-    margin: 0 0 7px;
+    margin: 0 0 6px;
 }
 
 .subtitle {
     width: 380px;
-    margin: 0 0 42px;
+    margin: 0 0 39px;
 }
 
 .logo {
-    padding: 0 0 0 296px;
+    padding: 0 0 0 297px;
 }
 
 @media (max-width: 1199px) {}

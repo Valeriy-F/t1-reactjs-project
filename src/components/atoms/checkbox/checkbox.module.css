@@ -21,7 +21,7 @@
 /* Create a custom checkbox */
 .checkmark {
     position: absolute;
-    top: -2px;
+    top: -4px;
     left: 0;
     height: 24px;
     width: 24px;

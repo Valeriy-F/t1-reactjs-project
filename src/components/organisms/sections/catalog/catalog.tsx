@@ -19,6 +19,7 @@ const fetchProducts = async (quantity: number) => {
       imageData: {
         src: "images/products/product@1x.webp",
         alt: title,
+        width: "280px",
         srcSetData: {
           xl: "images/products/product@4x.webp",
           lg: "images/products/product@3x.webp",
