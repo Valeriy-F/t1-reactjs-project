@@ -29,7 +29,6 @@ const footerMenuItems = [
 const faqSectionData = [
   { quastion: "Question 1", answer: "Long answer to the first question." },
   { quastion: "Question 2", answer: "Long answer to the second question." },
-  { quastion: "Question 3", answer: "Long answer to the third question." },
 ];
 
 const Home = () => {

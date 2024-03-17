@@ -14,12 +14,12 @@ const ProductFilter = () => {
         <Typography variant={ETypographyVariant.TEXT_BOLD}>Category</Typography>
         <CategoryFilter
           filters={[
-            { label: "Filter 1", value: "filter_1" },
-            { label: "Filter 2", value: "filter_2" },
-            { label: "Filter 3", value: "filter_3" },
-            { label: "Filter 4", value: "filter_4" },
-            { label: "Filter 5", value: "filter_5" },
-            { label: "Filter 6", value: "filter_6" },
+            { label: "sneakers", value: "filter_1" },
+            { label: "sneakers", value: "filter_2" },
+            { label: "sneakers", value: "filter_3" },
+            { label: "sneakers", value: "filter_4" },
+            { label: "sneakers", value: "filter_5" },
+            { label: "sneakers", value: "filter_6" },
           ]}
         />
       </div>

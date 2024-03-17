@@ -11,11 +11,11 @@ const fetchProducts = async (quantity: number) => {
   const products: TProductListItemProps[] = [];
 
   for (let i = 1; i <= quantity; i++) {
-    const title = `Stinky sneakers ${i}`;
+    const title = `Nike Air Force 1 '07 QS`;
 
     products.push({
       title,
-      price: `${i * 10} $`,
+      price: `110 $`,
       imageData: {
         src: "images/products/product@1x.webp",
         alt: title,
@@ -36,7 +36,7 @@ const Catalog = () => {
   const [products, setProducts] = useState<TProductListItemProps[]>([]);
 
   useEffect(() => {
-    fetchProducts(5).then(setProducts).catch(console.log);
+    fetchProducts(9).then(setProducts).catch(console.log);
   }, []);
 
   return (

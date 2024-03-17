@@ -1,29 +1,17 @@
-import { ReactElement } from "react";
+import { ReactNode } from "react";
 
 import styles from "./checkbox.module.css";
 
 type TCheckboxProps = {
   value: string | number;
-  label: string | ReactElement;
-  id?: string;
+  label: string | ReactNode;
 };
 
-const Checkbox = ({ value, label, id }: TCheckboxProps) => {
-  id = id || (value as string);
-
-  //   return (
-  //     <>
-  //       <input type="checkbox" value={value} id={id} className={styles["native-checkbox"]} />
-  //       <label htmlFor={id} className="label">
-  //         {label}
-  //       </label>
-  //     </>
-  //   );
-
+const Checkbox = ({ value, label }: TCheckboxProps) => {
   return (
     <label className={styles["container"]}>
       {label}
-      <input type="checkbox" />
+      <input type="checkbox" value={value} />
       <span className={styles["checkmark"]}></span>
     </label>
   );
