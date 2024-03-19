@@ -1,30 +1,28 @@
-import { useState } from "react";
-
-import { Radio, Typography } from "../../atoms";
-import { ETypographyVariant } from "../../atoms/typography/typography";
+import { Radio, Typography, TypographyVariant } from "../../atoms";
 
 import styles from "./category-filter.module.css";
 
 type TCategoryFilterProps = {
   filters?: { label: string; value: string }[];
+  chackedValue?: string | null;
+  onCheck?: (value: string) => void;
 };
 
-const CategoryFilter = ({ filters = [] }: TCategoryFilterProps) => {
-  const [checkedCategory, setCheckedCategory] = useState<string>("");
-
+const CategoryFilter = ({ filters = [], chackedValue, onCheck }: TCategoryFilterProps) => {
   return (
     <div className={styles.container}>
       {filters.map(({ value, label }) => {
-        const isChecked = checkedCategory === value;
+        const isChecked = chackedValue ? chackedValue === value : false;
 
         return (
           <div key={value} className={`${styles["filter-item"]} ${isChecked && styles["checked"]}`}>
             <Radio
-              label={<Typography variant={ETypographyVariant.TEXT_BOLD}>{label}</Typography>}
+              name={value}
+              label={<Typography variant={TypographyVariant.TEXT_BOLD}>{label}</Typography>}
               defaultValue={value}
-              defaultChecked={isChecked}
+              checked={isChecked}
               onChange={() => {
-                setCheckedCategory(value);
+                onCheck && onCheck(value);
               }}
             />
           </div>
@@ -35,3 +33,5 @@ const CategoryFilter = ({ filters = [] }: TCategoryFilterProps) => {
 };
 
 export default CategoryFilter;
+
+export { type TCategoryFilterProps };

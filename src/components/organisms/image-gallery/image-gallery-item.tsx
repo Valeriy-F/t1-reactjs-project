@@ -1,6 +1,4 @@
-import Image, { TImageProps } from "../../atoms/Image/image";
-import Overlay from "../../atoms/overlay/overlay";
-import Typography, { ETypographyVariant } from "../../atoms/typography/typography";
+import { Image, Overlay, TImageProps, Typography, TypographyVariant } from "../../atoms";
 
 import styles from "./image-gallery-item.module.css";
 
@@ -15,14 +13,14 @@ const ImageGalleryItem = ({ title, subtitle, ...imageProps }: TImageGalleryItemP
       <div className={styles["image-info"]}>
         {title && (
           <div className={styles["image-title"]}>
-            <Typography variant={ETypographyVariant.TEXT_XL_BOLD} color="secondary">
+            <Typography variant={TypographyVariant.TEXT_XL_BOLD} color="secondary">
               {title}
             </Typography>
           </div>
         )}
         {subtitle && (
           <div className={styles["image-subtitle"]}>
-            <Typography variant={ETypographyVariant.TEXT_BOLD} color="secondary">
+            <Typography variant={TypographyVariant.TEXT_BOLD} color="secondary">
               {subtitle}
             </Typography>
           </div>

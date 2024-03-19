@@ -1,8 +1,8 @@
 import { HTMLAttributes } from "react";
+import { NavLink } from "react-router-dom";
 
 import { toKey } from "../../../utils/string-util";
-import Logo from "../../atoms/logo/logo";
-import Typography, { ETypographyVariant } from "../../atoms/typography/typography";
+import { Logo, Typography, TypographyVariant } from "../../atoms";
 
 import styles from "./nav-menu.module.css";
 
@@ -20,17 +20,17 @@ const NavMenu = ({ items, className, ...otherProps }: TNavMenuProps) => {
 
   return (
     <nav className={styles["nav-menu"] + extraClasses} {...otherProps}>
-      <a href="#" className={styles["link-logo"]}>
+      <NavLink to="/" className={styles["link-logo"]}>
         <Logo />
-      </a>
+      </NavLink>
       <ul className={styles["menu"]}>
         {items.map(({ title, url }) => (
           <li key={toKey(title)} className="menu-item">
-            <a href={url}>
-              <Typography variant={ETypographyVariant.TEXT_SM_BOLD} color="secondary">
+            <NavLink to={url}>
+              <Typography variant={TypographyVariant.TEXT_SM_BOLD} color="secondary">
                 {title}
               </Typography>
-            </a>
+            </NavLink>
           </li>
         ))}
       </ul>

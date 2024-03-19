@@ -1,5 +1,5 @@
 import { toKey } from "../../../../utils/string-util";
-import Typography, { ETypographyVariant } from "../../../atoms/typography/typography";
+import { Typography, TypographyVariant } from "../../../atoms";
 import Accordion from "../../accordion";
 
 import styles from "./faq.module.css";
@@ -18,7 +18,7 @@ const dataToAccordionContents = (data: IFAQDataItem[]) => {
     id: toKey(quastion),
     title: quastion,
     content: (
-      <Typography variant={ETypographyVariant.TEXT_BOLD} color="primary-light">
+      <Typography variant={TypographyVariant.TEXT_BOLD} color="primary-light">
         {answer}
       </Typography>
     ),
@@ -29,7 +29,7 @@ const FAQ = ({ data }: TFAQProps) => {
   return (
     <div className={styles["content-container"]}>
       <div className={styles.title}>
-        <Typography variant={ETypographyVariant.H2}>FAQ</Typography>
+        <Typography variant={TypographyVariant.H2}>FAQ</Typography>
       </div>
       <div className={styles.questions}>
         <Accordion contents={dataToAccordionContents(data)} />

@@ -1,8 +1,8 @@
-import { HTMLAttributes } from "react";
+import { ButtonHTMLAttributes } from "react";
 
 import styles from "./button.module.css";
 
-type TButtonProps = HTMLAttributes<HTMLButtonElement> & {
+type TButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "button" | "link";
   size?: "sm" | "md" | "lg";
   color?: "primary" | "primary-transparent" | "secondary";

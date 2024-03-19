@@ -1,3 +1,4 @@
+import { Line } from "../../atoms";
 import Footer from "../../organisms/footer/footer";
 import Header from "../../organisms/header/header";
 import About from "../../organisms/sections/about/about";
@@ -15,7 +16,7 @@ const headerMenuItems = [
   { title: "Product selection", url: "#" },
   { title: "Our team", url: "#" },
   { title: "FAQ", url: "#" },
-  { title: "For staff", url: "#" },
+  { title: "For staff", url: "products" },
 ];
 
 const footerMenuItems = [
@@ -37,6 +38,7 @@ const Home = () => {
       <header className="header">
         <div className="container">
           <Header menuItems={headerMenuItems} />
+          <Line color={"secondary-alpha50"} thickness={1} />
         </div>
       </header>
       <main>

@@ -1,5 +1,4 @@
-import Button from "../../../atoms/button/button";
-import Typography, { ETypographyVariant } from "../../../atoms/typography/typography";
+import { Button, Typography, TypographyVariant } from "../../../atoms";
 
 import styles from "./hero.module.css";
 
@@ -7,12 +6,12 @@ const Hero = () => {
   return (
     <div className={styles["content-container"]}>
       <div className={styles.title}>
-        <Typography variant={ETypographyVariant.H1} color="secondary">
+        <Typography variant={TypographyVariant.H1} color="secondary">
           Any products from famous brands with worldwide delivery
         </Typography>
       </div>
       <div className={styles.subtitle}>
-        <Typography variant={ETypographyVariant.TEXT_BOLD} color="secondary">
+        <Typography variant={TypographyVariant.TEXT_BOLD} color="secondary">
           We sell smartphones, laptops, clothes, shoes and many other products at low prices
         </Typography>
       </div>

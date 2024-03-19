@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-import ImageGalleryItem, { TImageGalleryItemProps } from "../../molecules/image-gallery-item/image-gallery-item";
+import ImageGalleryItem, { TImageGalleryItemProps } from "./image-gallery-item";
 
 import styles from "./image-gallery.module.css";
 

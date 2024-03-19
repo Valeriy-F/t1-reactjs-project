@@ -1,10 +1,6 @@
 import { ReactElement, useEffect, useState } from "react";
 
-import { TypographyVariant } from "../../../atoms";
-import Button from "../../../atoms/button/button";
-import Checkbox from "../../../atoms/checkbox/checkbox";
-import Line from "../../../atoms/line/line";
-import Typography, { ETypographyVariant } from "../../../atoms/typography/typography";
+import { Button, Checkbox, Line, Typography, TypographyVariant } from "../../../atoms";
 
 import styles from "./quiz.module.css";
 
@@ -18,7 +14,7 @@ const fetchQuizChoiceList = async (limit: number) => {
 
   for (let i = 1; i <= limit; i++) {
     choiceList.push({
-      label: <Typography variant={ETypographyVariant.TEXT_BOLD}>{`sneakers`}</Typography>,
+      label: <Typography variant={TypographyVariant.TEXT_BOLD}>{`sneakers`}</Typography>,
       value: `sneakers_${i}`,
     });
   }
@@ -37,7 +33,7 @@ const Quiz = () => {
     <div className={styles["content-container"]}>
       <div className={styles.header}>
         <div>
-          <Typography variant={ETypographyVariant.H2}>We will select the perfect product for you</Typography>
+          <Typography variant={TypographyVariant.H2}>We will select the perfect product for you</Typography>
         </div>
         <div>
           <Typography variant={TypographyVariant.TEXT_BOLD} color="primary-light">
@@ -48,7 +44,7 @@ const Quiz = () => {
       </div>
       <div className={styles.body}>
         <div className={styles["body__title"]}>
-          <Typography variant={ETypographyVariant.H3}>What type of product are you considering?</Typography>
+          <Typography variant={TypographyVariant.H3}>What type of product are you considering?</Typography>
         </div>
         <div className={styles["choice-list"]}>
           {choices.map(({ label, value }) => (
@@ -63,7 +59,7 @@ const Quiz = () => {
           <Line color="primary-light" />
         </div>
         <div>
-          <Typography variant={ETypographyVariant.TEXT_BOLD} color="primary-light">
+          <Typography variant={TypographyVariant.TEXT_BOLD} color="primary-light">
             1 of 2
           </Typography>
         </div>

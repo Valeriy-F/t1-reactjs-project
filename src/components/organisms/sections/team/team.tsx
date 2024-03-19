@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 
-import Typography, { ETypographyVariant } from "../../../atoms/typography/typography";
-import { TImageGalleryItemProps } from "../../../molecules/image-gallery-item/image-gallery-item";
-import ImageGallery from "../../image-gallery/image-gallery";
+import { Typography, TypographyVariant } from "../../../atoms";
+import ImageGallery, { TImageGalleryProps } from "../../image-gallery/image-gallery";
 
 import styles from "./team.module.css";
 
+type TImages = TImageGalleryProps["imagesData"];
+
 const generateImagesData = async (quantity: number) => {
-  const imagesData: TImageGalleryItemProps[] = [];
+  const imagesData: TImages = [];
 
   for (let i = 1; i <= quantity; i++) {
     const title = `Person ${i}`;
@@ -31,7 +32,7 @@ const generateImagesData = async (quantity: number) => {
 };
 
 const Team = () => {
-  const [imagesData, setImagesData] = useState<TImageGalleryItemProps[]>([]);
+  const [imagesData, setImagesData] = useState<TImages>([]);
 
   useEffect(() => {
     generateImagesData(6).then(setImagesData).catch(console.log);
@@ -40,7 +41,7 @@ const Team = () => {
   return (
     <div className={styles["content-container"]}>
       <div className={styles.title}>
-        <Typography variant={ETypographyVariant.H2} color="secondary">
+        <Typography variant={TypographyVariant.H2} color="secondary">
           Our team
         </Typography>
       </div>

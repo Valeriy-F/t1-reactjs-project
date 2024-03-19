@@ -1,4 +1,4 @@
-import NavMenu, { TNavMenuItem } from "../../molecules/nav-menu/nav-menu";
+import { NavMenu, TNavMenuItem } from "../../molecules";
 
 import styles from "./footer.module.css";
 

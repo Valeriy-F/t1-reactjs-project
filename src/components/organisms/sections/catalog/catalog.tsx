@@ -1,56 +1,46 @@
-import { useEffect, useState } from "react";
-
-import Typography, { ETypographyVariant } from "../../../atoms/typography/typography";
-import { TProductListItemProps } from "../../../molecules/product-list-item/product-list-item";
-import ProductFilter from "../../product-filter/product-filter";
+import { useGetProducsCategoriesQuery, useSearchProductsQuery } from "../../../../store/product";
+import { Typography, TypographyVariant } from "../../../atoms";
+import ProductFilter, { IProductFilterFormData } from "../../product-filter/product-filter";
 import ProductList from "../../product-list/product-list";
 
 import styles from "./catalog.module.css";
 
-const fetchProducts = async (quantity: number) => {
-  const products: TProductListItemProps[] = [];
-
-  for (let i = 1; i <= quantity; i++) {
-    const title = `Nike Air Force 1 '07 QS`;
-
-    products.push({
-      title,
-      price: `110 $`,
-      imageData: {
-        src: "images/products/product@1x.webp",
-        alt: title,
-        width: "280px",
-        srcSetData: {
-          xl: "images/products/product@4x.webp",
-          lg: "images/products/product@3x.webp",
-          md: "images/products/product@2x.webp",
-          sm: "images/products/product@1x.webp",
-        },
-      },
-    });
-  }
-
-  return products;
-};
-
 const Catalog = () => {
-  const [products, setProducts] = useState<TProductListItemProps[]>([]);
+  const { products, isLoading, fetchMoreData, updateSelectFilter, resetSelectQuery, isAllDataFetched } =
+    useSearchProductsQuery(3);
+  const { data: categories } = useGetProducsCategoriesQuery(null);
 
-  useEffect(() => {
-    fetchProducts(9).then(setProducts).catch(console.log);
-  }, []);
+  const handleProductFilterFormSubmit = (formData: IProductFilterFormData) => {
+    updateSelectFilter({ category: formData.categery });
+    resetSelectQuery();
+  };
+
+  const handleFormReset = () => {
+    updateSelectFilter({ category: null });
+    resetSelectQuery();
+  };
+
+  const categoriesFilterData = categories ? categories.map((category) => ({ label: category, value: category })) : [];
 
   return (
     <div>
       <div className={styles.title}>
-        <Typography variant={ETypographyVariant.H2}>Catalog</Typography>
+        <Typography variant={TypographyVariant.H2}>Catalog</Typography>
       </div>
       <div className={styles["content-container"]}>
         <div>
-          <ProductFilter />
+          <ProductFilter
+            categoriesFilterData={categoriesFilterData}
+            handleFormSubmit={handleProductFilterFormSubmit}
+            handleFormReset={handleFormReset}
+          />
         </div>
         <div>
-          <ProductList productData={products} />
+          {isLoading ? (
+            "Loading..."
+          ) : (
+            <ProductList products={products} onShowMoreClick={fetchMoreData} isAllDataFetched={isAllDataFetched} />
+          )}
         </div>
       </div>
     </div>

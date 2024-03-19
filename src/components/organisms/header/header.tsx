@@ -1,5 +1,4 @@
-import Line from "../../atoms/line/line";
-import NavMenu, { TNavMenuItem } from "../../molecules/nav-menu/nav-menu";
+import { NavMenu, TNavMenuItem } from "../../molecules";
 
 import styles from "./header.module.css";
 
@@ -11,7 +10,6 @@ const Header = ({ menuItems = [] }: THeaderProps) => {
   return (
     <>
       <NavMenu items={menuItems} className={styles.nav} />
-      <Line color={"secondary-alpha50"} thickness={1} />
     </>
   );
 };
