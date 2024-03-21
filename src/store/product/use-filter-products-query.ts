@@ -1,24 +1,24 @@
 import { useState } from "react";
 
-import { IProduct, IProductsQueryParams, IProductsSearch } from "../../models/product";
+import { IProduct, IProductsFilter, IProductsQueryParams } from "../../models/product";
 import { useDispatch, useSelector } from "../hooks";
 
-import { useGetProductsBySearchQuery } from "./product-api";
-import { productActions, searchProductsQueryDataInitialState, selectSearchProductsQueryData } from "./product-slice";
+import { useGetProductsByFilterQuery } from "./product-api";
+import { filterProductsQueryDataInitialState, productActions, selectFilterProductsQueryData } from "./product-slice";
 
-const useSearchProductsQuery = () => {
-  const initialState = searchProductsQueryDataInitialState;
+const useFilterProductsQuery = () => {
+  const initialState = filterProductsQueryDataInitialState;
   const dataPerFetch = initialState.queryParams.limit || 9;
   const dispatch = useDispatch();
-  const { search, queryParams } = useSelector(selectSearchProductsQueryData);
+  const { filter, queryParams } = useSelector(selectFilterProductsQueryData);
   const [productsQueryParams, setProductsQueryParams] = useState<IProductsQueryParams>(queryParams);
-  const [productsSearch, setProductsSearch] = useState<IProductsSearch>(search);
+  const [productsFilter, setProductsFilter] = useState<IProductsFilter>(filter);
 
   const {
     isError,
     isLoading,
     data: response,
-  } = useGetProductsBySearchQuery({ search: productsSearch, queryParams: productsQueryParams });
+  } = useGetProductsByFilterQuery({ filter: productsFilter, queryParams: productsQueryParams });
 
   let products: IProduct[] = [];
   let isAllDataFetched = false;
@@ -28,15 +28,15 @@ const useSearchProductsQuery = () => {
   };
 
   const updateProductsQueryData = (
-    search: IProductsSearch | null = {},
+    filter: IProductsFilter | null = {},
     queryParams: IProductsQueryParams | null = {}
   ) => {
-    search = search === null ? initialState.search : Object.assign({}, productsSearch, search);
+    filter = filter === null ? initialState.filter : Object.assign({}, productsFilter, filter);
     queryParams = queryParams === null ? initialState.queryParams : Object.assign({}, productsQueryParams, queryParams);
 
-    dispatch(productActions.setSearchProductsQueryData({ search, queryParams }));
+    dispatch(productActions.setFilterProductsQueryData({ filter, queryParams }));
 
-    setProductsSearch(search);
+    setProductsFilter(filter);
     setProductsQueryParams(queryParams);
   };
 
@@ -49,11 +49,11 @@ const useSearchProductsQuery = () => {
     isError,
     isLoading,
     products,
-    productsSearch,
+    productsFilter,
     isAllDataFetched,
     fetchMoreData,
     updateProductsQueryData,
   };
 };
 
-export { useSearchProductsQuery };
+export { useFilterProductsQuery };

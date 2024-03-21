@@ -1,12 +1,15 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-import { IProduct, IProductsResponse, IProductsSelectFilter, IProductsSelectQuery } from "../../models/product";
+import {
+  IProductsFilterRequest,
+  IProductsQueryParams,
+  IProductsResponse,
+  IProductsSearchRequest,
+} from "../../models/product";
 
 const BASE_URL = "https://dummyjson.com/products";
 
-const transformResponse = (response: IProductsResponse) => response.products;
-
-const generateSelectQueryParams = ({ limit = 0, skip = 0, select = [] }: IProductsSelectQuery) => {
+const generateSelectQueryParams = ({ limit = 0, skip = 0, select = [] }: IProductsQueryParams) => {
   return {
     limit,
     skip,
@@ -20,13 +23,10 @@ const productApi = createApi({
     baseUrl: BASE_URL,
   }),
   endpoints: (build) => ({
-    searchProducts: build.query<
-      IProductsResponse,
-      { selectFilter: IProductsSelectFilter; selectQuery: IProductsSelectQuery }
-    >({
-      query: ({ selectFilter, selectQuery }) => {
-        const params = generateSelectQueryParams(selectQuery);
-        const url = selectFilter.category ? `category/${selectFilter.category}` : "";
+    getProductsByFilter: build.query<IProductsResponse, IProductsFilterRequest>({
+      query: ({ filter, queryParams }) => {
+        const params = generateSelectQueryParams(queryParams);
+        const url = filter.category ? `category/${filter.category}` : "";
 
         return {
           url,
@@ -34,12 +34,22 @@ const productApi = createApi({
         };
       },
     }),
+    getProductsBySearch: build.query<IProductsResponse, IProductsSearchRequest>({
+      query: ({ search, queryParams }) => {
+        const params = Object.assign({ q: search.title }, generateSelectQueryParams(queryParams));
+
+        return {
+          url: "search",
+          params,
+        };
+      },
+    }),
     getProducsCategories: build.query<string[], null>({
-      query: () => ({ url: `${BASE_URL}/categories` }),
+      query: () => ({ url: "categories" }),
     }),
   }),
 });
 
 export default productApi;
 
-export const { useSearchProductsQuery, useGetProducsCategoriesQuery } = productApi;
+export const { useGetProductsByFilterQuery, useGetProductsBySearchQuery, useGetProducsCategoriesQuery } = productApi;

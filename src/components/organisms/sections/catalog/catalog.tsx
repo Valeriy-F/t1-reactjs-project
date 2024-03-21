@@ -1,4 +1,4 @@
-import { useGetProducsCategoriesQuery, useSearchProductsQuery } from "../../../../store/product";
+import { useFilterProductsQuery, useGetProducsCategoriesQuery } from "../../../../store/product";
 import { Typography, TypographyVariant } from "../../../atoms";
 import ProductFilter, { IProductFilterFormData } from "../../product-filter/product-filter";
 import ProductList from "../../product-list/product-list";
@@ -6,18 +6,16 @@ import ProductList from "../../product-list/product-list";
 import styles from "./catalog.module.css";
 
 const Catalog = () => {
-  const { products, isLoading, fetchMoreData, updateSelectFilter, resetSelectQuery, isAllDataFetched } =
-    useSearchProductsQuery(3);
+  const { products, productsFilter, isLoading, isAllDataFetched, fetchMoreData, updateProductsQueryData } =
+    useFilterProductsQuery();
   const { data: categories } = useGetProducsCategoriesQuery(null);
 
   const handleProductFilterFormSubmit = (formData: IProductFilterFormData) => {
-    updateSelectFilter({ category: formData.categery });
-    resetSelectQuery();
+    updateProductsQueryData({ category: formData.categery }, null);
   };
 
   const handleFormReset = () => {
-    updateSelectFilter({ category: null });
-    resetSelectQuery();
+    updateProductsQueryData(null, null);
   };
 
   const categoriesFilterData = categories ? categories.map((category) => ({ label: category, value: category })) : [];
@@ -31,6 +29,7 @@ const Catalog = () => {
         <div>
           <ProductFilter
             categoriesFilterData={categoriesFilterData}
+            currentCategory={productsFilter.category}
             handleFormSubmit={handleProductFilterFormSubmit}
             handleFormReset={handleFormReset}
           />

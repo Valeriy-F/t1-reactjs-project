@@ -12,12 +12,18 @@ type ICategoriesFilterData = TCategoryFilterProps["filters"];
 
 type TProductFilter = {
   categoriesFilterData: ICategoriesFilterData;
+  currentCategory?: string | null;
   handleFormSubmit?: (formData: IProductFilterFormData) => void;
   handleFormReset?: () => void;
 };
 
-const ProductFilter = ({ handleFormSubmit, handleFormReset, categoriesFilterData = [] }: TProductFilter) => {
-  const [checkedCategory, setCheckedCategory] = useState<string | null>(null);
+const ProductFilter = ({
+  handleFormSubmit,
+  handleFormReset,
+  categoriesFilterData = [],
+  currentCategory = null,
+}: TProductFilter) => {
+  const [checkedCategory, setCheckedCategory] = useState<string | null>(currentCategory);
   const onFormSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 

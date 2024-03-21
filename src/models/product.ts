@@ -12,6 +12,16 @@ interface IProduct {
   images: string[];
 }
 
+interface IProductsFilterRequest {
+  filter: IProductsFilter;
+  queryParams: IProductsQueryParams;
+}
+
+interface IProductsSearchRequest {
+  search: IProductsSearch;
+  queryParams: IProductsQueryParams;
+}
+
 interface IProductsResponse {
   products: IProduct[];
   total: number;
@@ -19,14 +29,26 @@ interface IProductsResponse {
   limit: number;
 }
 
-interface IProductsSelectQuery {
+interface IProductsQueryParams {
   limit?: number;
   skip?: number;
   select?: Array<keyof IProduct>;
 }
 
-interface IProductsSelectFilter {
+interface IProductsFilter {
   category?: string | null;
 }
 
-export { type IProduct, type IProductsResponse, type IProductsSelectFilter, type IProductsSelectQuery };
+interface IProductsSearch {
+  title?: string;
+}
+
+export {
+  type IProduct,
+  type IProductsFilter,
+  type IProductsFilterRequest,
+  type IProductsQueryParams,
+  type IProductsResponse,
+  type IProductsSearch,
+  type IProductsSearchRequest,
+};
