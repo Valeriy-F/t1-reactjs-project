@@ -8,7 +8,7 @@ import styles from "./catalog.module.css";
 const Catalog = () => {
   const { products, productsFilter, isLoading, isAllDataFetched, fetchMoreData, updateProductsQueryData } =
     useFilterProductsQuery();
-  const { data: categories } = useGetProducsCategoriesQuery(null);
+  const { data: categories, isLoading: filtersLoading } = useGetProducsCategoriesQuery(null);
 
   const handleProductFilterFormSubmit = (formData: IProductFilterFormData) => {
     updateProductsQueryData({ category: formData.categery }, null);
@@ -36,7 +36,7 @@ const Catalog = () => {
         </div>
         <div>
           {isLoading ? (
-            "Loading..."
+            "Product Loading..."
           ) : (
             <ProductList products={products} onShowMoreClick={fetchMoreData} isAllDataFetched={isAllDataFetched} />
           )}

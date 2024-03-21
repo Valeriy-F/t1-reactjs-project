@@ -6,4 +6,5 @@ export { default as Line } from "./line/line";
 export { default as Logo, LogoCite } from "./logo/logo";
 export { default as Overlay } from "./overlay/overlay";
 export { default as Radio } from "./radio/radio";
+export { default as Text } from "./text/text";
 export { default as Typography, ETypographyVariant as TypographyVariant } from "./typography/typography";

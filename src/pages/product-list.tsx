@@ -1,16 +1,19 @@
-import { ProductListTemplate } from "../components/templates";
+import { ISearchFormData } from "../components/molecules/search-form/search-form";
+import { ProductListTemplate, TProductListTemplateProps } from "../components/templates";
 import { useSearchProductsQuery } from "../store/product";
+import { debounce } from "../utils/function-utils";
 
 import { ErrorPage } from ".";
 
 const ProductList = () => {
-  const { isError, isLoading, products, fetchMoreData, isAllDataFetched } = useSearchProductsQuery();
+  const { isError, isLoading, products, isAllDataFetched, fetchMoreData, updateProductsQueryData } =
+    useSearchProductsQuery();
 
   if (isError) {
     return <ErrorPage />;
   }
 
-  const productListData = products
+  const productListData: TProductListTemplateProps["productListData"] = products
     ? {
         products,
         isAllDataFetched,
@@ -20,7 +23,18 @@ const ProductList = () => {
       }
     : {};
 
-  return <ProductListTemplate productListData={productListData} isLoading={isLoading} />;
+  const searchFormData: TProductListTemplateProps["searchFormData"] = {
+    onFormSubmit: (formData: ISearchFormData) => {
+      updateProductsQueryData({ title: formData.inputValue });
+    },
+    onInputValueChange: debounce((value: string) => {
+      updateProductsQueryData({ title: value });
+    }, 300),
+  };
+
+  return (
+    <ProductListTemplate productListData={productListData} searchFormData={searchFormData} isLoading={isLoading} />
+  );
 };
 
 export default ProductList;

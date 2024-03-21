@@ -43,7 +43,6 @@ const productSlice = createSlice({
       state.filterProductsQueryData = action.payload;
     },
     setSearchProductsQueryData(state, action: PayloadAction<IProductsSearchRequest>) {
-      console.log(action.payload);
       state.searchProductsQueryData = action.payload;
     },
   },

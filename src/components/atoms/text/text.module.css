@@ -1,0 +1,15 @@
+.text-field {
+  padding: 13px 13px;
+  border: 1px solid var(--color-gray-light2);
+  border-radius: var(--border-radius);
+  background-color: var(--color-gray-light3);
+  width: 100%;
+}
+
+.size-lg {
+  padding: 22px 24px;
+}
+
+.size-md {
+  padding: 13px 15px;
+}

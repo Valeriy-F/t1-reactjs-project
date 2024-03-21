@@ -1,31 +1,33 @@
 :root {
-    --viewport-breakpoint-xs: 575px;
-    --viewport-breakpoint-sm: 767px;
-    --viewport-breakpoint-md: 991px;
-    --viewport-breakpoint-lg: 1199px;
+  --viewport-breakpoint-xs: 575px;
+  --viewport-breakpoint-sm: 767px;
+  --viewport-breakpoint-md: 991px;
+  --viewport-breakpoint-lg: 1199px;
 
-    --color-gray: #444B58;
-    --color-gray-light: #808080;
-    --color-white: #FFFFFF;
-    --color-purple-blue: #484283;
-    --color-orange: #F14F4F;
-    --color-yellow: #FFF4EE;
-    --color-brown-light: #DBBBA9;
+  --color-gray: #444B58;
+  --color-gray-light: #808080;
+  --color-gray-light2: #B2B5BB;
+  --color-gray-light3: #F6F6F6;
+  --color-white: #FFFFFF;
+  --color-purple-blue: #484283;
+  --color-orange: #F14F4F;
+  --color-yellow: #FFF4EE;
+  --color-brown-light: #DBBBA9;
 
-    --text-color-primary: var(--color-gray);
-    --text-color-primary-light: var(--color-gray-light);
-    --text-color-secondary: var(--color-white);
+  --text-color-primary: var(--color-gray);
+  --text-color-primary-light: var(--color-gray-light);
+  --text-color-secondary: var(--color-white);
 
-    --font-size-sm: 0.875rem;
-    --font-size-md: 1rem;
-    --font-size-lg: 1.25rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
 
-    --border-color-primary: var(--color-gray-light);
-    --border-color-secondary: var(--color-white);
-    --border-color-secondary-alpha50: rgba(255, 255, 255, 0.5);
-    --border-thickness-1: 1px;
-    --border-thickness-2: 2px;
-    --border-thickness-3: 3px;
+  --border-color-primary: var(--color-gray-light);
+  --border-color-secondary: var(--color-white);
+  --border-color-secondary-alpha50: rgba(255, 255, 255, 0.5);
+  --border-thickness-1: 1px;
+  --border-thickness-2: 2px;
+  --border-thickness-3: 3px;
 
-    --border-radius: 4px;
+  --border-radius: 4px;
 }
