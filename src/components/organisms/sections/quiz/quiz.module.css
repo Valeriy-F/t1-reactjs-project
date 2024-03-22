@@ -27,8 +27,8 @@
     display: grid;
     grid-template-columns: repeat(4, auto);
     row-gap: 29px;
-    column-gap: 167px;
-    justify-content: start;
+    column-gap: 30px;
+    justify-content: space-between;
     align-items: center;
 }
 

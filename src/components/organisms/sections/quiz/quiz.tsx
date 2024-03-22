@@ -1,33 +1,10 @@
-import { ReactElement, useEffect, useState } from "react";
-
+import { useGetProducsCategoriesQuery } from "../../../../store/product";
 import { Button, Checkbox, Line, Typography, TypographyVariant } from "../../../atoms";
 
 import styles from "./quiz.module.css";
 
-type TQuizChoice = {
-  label: string | ReactElement;
-  value: string;
-};
-
-const fetchQuizChoiceList = async (limit: number) => {
-  const choiceList: TQuizChoice[] = [];
-
-  for (let i = 1; i <= limit; i++) {
-    choiceList.push({
-      label: <Typography variant={TypographyVariant.TEXT_BOLD}>{`sneakers`}</Typography>,
-      value: `sneakers_${i}`,
-    });
-  }
-
-  return choiceList;
-};
-
 const Quiz = () => {
-  const [choices, setChoices] = useState<TQuizChoice[]>([]);
-
-  useEffect(() => {
-    fetchQuizChoiceList(22).then(setChoices).catch(console.log);
-  }, []);
+  const { data: categories, isLoading } = useGetProducsCategoriesQuery(null);
 
   return (
     <div className={styles["content-container"]}>
@@ -46,13 +23,17 @@ const Quiz = () => {
         <div className={styles["body__title"]}>
           <Typography variant={TypographyVariant.H3}>What type of product are you considering?</Typography>
         </div>
-        <div className={styles["choice-list"]}>
-          {choices.map(({ label, value }) => (
-            <div key={value}>
-              <Checkbox value={value} label={label} />
-            </div>
-          ))}
-        </div>
+        {isLoading ? (
+          "Categories loading..."
+        ) : (
+          <div className={styles["choice-list"]}>
+            {categories?.map((categery) => (
+              <div key={categery}>
+                <Checkbox value={categery} label={categery} />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
       <div className={styles.footer}>
         <div className={styles["footer__border-top"]}>
