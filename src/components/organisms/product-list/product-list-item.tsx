@@ -1,4 +1,5 @@
 import { memo } from "react";
+import { Link } from "react-router-dom";
 
 import { IProduct } from "../../../models/product";
 import { Image, Typography, TypographyVariant } from "../../atoms";
@@ -17,15 +18,17 @@ const ProductListItem = ({ product }: TProductListItemProps) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles["image-container"]}>
-        <Image className={styles["product-image"]} {...imageData} />
-      </div>
-      <div className={styles.title}>
-        <Typography variant={TypographyVariant.TEXT_BOLD}>{product.title}</Typography>
-      </div>
-      <div className={styles.price}>
-        <Typography variant={TypographyVariant.TEXT_LG}>{product.price}</Typography>
-      </div>
+      <Link to={`/products/${product.id}`}>
+        <div className={styles["image-container"]}>
+          <Image className={styles["product-image"]} {...imageData} />
+        </div>
+        <div className={styles.title}>
+          <Typography variant={TypographyVariant.TEXT_BOLD}>{product.title}</Typography>
+        </div>
+        <div className={styles.price}>
+          <Typography variant={TypographyVariant.TEXT_LG}>{product.price}</Typography>
+        </div>
+      </Link>
     </div>
   );
 };

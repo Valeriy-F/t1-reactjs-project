@@ -1,13 +1,12 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
 import {
+  IProduct,
   IProductsFilterRequest,
   IProductsQueryParams,
   IProductsResponse,
   IProductsSearchRequest,
+  isProductsResponseErrorType,
 } from "../../models/product";
-
-const BASE_URL = "https://dummyjson.com/products";
+import { baseApi, transformErrorResponseBuilder } from "../api";
 
 const generateSelectQueryParams = ({ limit = 0, skip = 0, select = [] }: IProductsQueryParams) => {
   return {
@@ -17,16 +16,27 @@ const generateSelectQueryParams = ({ limit = 0, skip = 0, select = [] }: IProduc
   };
 };
 
-const productApi = createApi({
-  reducerPath: "product/api",
-  baseQuery: fetchBaseQuery({
-    baseUrl: BASE_URL,
-  }),
+const productApi = baseApi.injectEndpoints({
+  overrideExisting: true,
   endpoints: (build) => ({
+    getProduct: build.query<IProduct, string>({
+      query: (id) => ({ url: `products/${id}` }),
+      transformErrorResponse: transformErrorResponseBuilder((data: unknown) => {
+        if (typeof data === "string") {
+          return data;
+        }
+
+        if (data && typeof data === "object" && isProductsResponseErrorType(data)) {
+          return data.message;
+        }
+
+        return "Failed to fetch product";
+      }),
+    }),
     getProductsByFilter: build.query<IProductsResponse, IProductsFilterRequest>({
       query: ({ filter, queryParams }) => {
         const params = generateSelectQueryParams(queryParams);
-        const url = filter.category ? `category/${filter.category}` : "";
+        const url = filter.category ? `products/category/${filter.category}` : "products";
 
         return {
           url,
@@ -39,17 +49,22 @@ const productApi = createApi({
         const params = Object.assign({ q: search.title }, generateSelectQueryParams(queryParams));
 
         return {
-          url: "search",
+          url: "products/search",
           params,
         };
       },
     }),
     getProducsCategories: build.query<string[], null>({
-      query: () => ({ url: "categories" }),
+      query: () => ({ url: "products/categories" }),
     }),
   }),
 });
 
 export default productApi;
 
-export const { useGetProductsByFilterQuery, useGetProductsBySearchQuery, useGetProducsCategoriesQuery } = productApi;
+export const {
+  useGetProductsByFilterQuery,
+  useGetProductsBySearchQuery,
+  useGetProducsCategoriesQuery,
+  useGetProductQuery,
+} = productApi;

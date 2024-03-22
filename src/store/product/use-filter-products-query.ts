@@ -15,6 +15,7 @@ const useFilterProductsQuery = () => {
   const [productsFilter, setProductsFilter] = useState<IProductsFilter>(filter);
 
   const {
+    error,
     isError,
     isLoading,
     data: response,
@@ -46,6 +47,7 @@ const useFilterProductsQuery = () => {
   }
 
   return {
+    error,
     isError,
     isLoading,
     products,

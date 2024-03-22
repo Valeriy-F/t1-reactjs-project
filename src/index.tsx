@@ -1,10 +1,10 @@
 import ReactDOM from "react-dom/client";
 
-import App from "./app";
+import App from "./app/app";
 import reportWebVitals from "./reportWebVitals";
 
-import "./styles/reset.css";
-import "./styles/variables.css";
+import "./app/styles/reset.css";
+import "./app/styles/variables.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(

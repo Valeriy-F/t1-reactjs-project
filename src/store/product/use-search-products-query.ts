@@ -15,6 +15,7 @@ const useSearchProductsQuery = () => {
   const [productsSearch, setProductsSearch] = useState<IProductsSearch>(search);
 
   const {
+    error,
     isError,
     isLoading,
     data: response,
@@ -46,6 +47,7 @@ const useSearchProductsQuery = () => {
   }
 
   return {
+    error,
     isError,
     isLoading,
     products,

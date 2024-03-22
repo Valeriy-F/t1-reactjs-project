@@ -1,1 +1,33 @@
+.product-details-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4%;
+}
 
+.product-details__preview {
+  min-width: 300px;
+  width: 48%;
+}
+
+.product-details__info {
+  min-width: 300px;
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info__title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4%;
+}
+
+.info__items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

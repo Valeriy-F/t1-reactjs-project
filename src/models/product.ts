@@ -29,6 +29,10 @@ interface IProductsResponse {
   limit: number;
 }
 
+interface IProductsResponseError {
+  message: string;
+}
+
 interface IProductsQueryParams {
   limit?: number;
   skip?: number;
@@ -43,12 +47,18 @@ interface IProductsSearch {
   title?: string;
 }
 
+const isProductsResponseErrorType = (responseError: object): responseError is IProductsResponseError =>
+  "message" in responseError;
+
 export {
   type IProduct,
   type IProductsFilter,
   type IProductsFilterRequest,
   type IProductsQueryParams,
   type IProductsResponse,
+  type IProductsResponseError,
   type IProductsSearch,
   type IProductsSearchRequest,
 };
+
+export { isProductsResponseErrorType };

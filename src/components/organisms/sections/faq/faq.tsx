@@ -1,4 +1,4 @@
-import { toKey } from "../../../../utils/string-util";
+import { toKey } from "../../../../app/app-utils";
 import { Typography, TypographyVariant } from "../../../atoms";
 import Accordion from "../../accordion";
 

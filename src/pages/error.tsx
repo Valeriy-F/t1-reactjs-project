@@ -1,7 +1,7 @@
-import BaseTemplate from "../components/templates/base-template/base-template";
+import { ErrorTemplate } from "../components/templates";
 
 const Error = () => {
-  return <BaseTemplate>Error occuirred!!!</BaseTemplate>;
+  return <ErrorTemplate>Error occuirred!!!</ErrorTemplate>;
 };
 
 export default Error;

@@ -1,7 +1,7 @@
 import { HTMLAttributes } from "react";
 import { NavLink } from "react-router-dom";
 
-import { toKey } from "../../../utils/string-util";
+import { toKey } from "../../../app/app-utils";
 import { Logo, Typography, TypographyVariant } from "../../atoms";
 
 import styles from "./nav-menu.module.css";

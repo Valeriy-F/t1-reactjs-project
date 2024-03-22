@@ -1,19 +1,21 @@
 .container {
-    display: grid;
-    grid-template-columns: repeat(2, 2fr);
-    justify-content: stretch;
-    align-items: center;
-    border: 1px solid var(--color-brown-light);
-    border-radius: var(--border-radius);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  justify-content: stretch;
+  align-items: center;
+  border: 1px solid var(--color-brown-light);
+  border-radius: var(--border-radius);
 }
 
 .filter-item {
-    display: flex;
-    justify-content: center;
-    padding: 19px 13px 13px 10px;
-    border: 1px solid var(--color-brown-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 19px 13px 13px 10px;
+  border: 1px solid var(--color-brown-light);
 }
 
 .checked {
-    background-color: var(--color-brown-light);
+  background-color: var(--color-brown-light);
 }

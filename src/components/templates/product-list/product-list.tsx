@@ -1,7 +1,6 @@
-import { Typography, TypographyVariant } from "../../atoms";
 import { SearchForm, TSearchFormProps } from "../../molecules";
 import { ProductList, TProductListProps } from "../../organisms";
-import BaseLayout from "../base-template/base-template";
+import BaseTemplate from "../base-template/base-template";
 
 import styles from "./product-list.module.css";
 
@@ -15,19 +14,12 @@ const ProductListTemplate = ({ isLoading = false, productListData, searchFormDat
   const content = isLoading ? "Loading..." : <ProductList {...productListData} />;
 
   return (
-    <BaseLayout>
-      <section>
-        <div className={styles["content-container"]}>
-          <div className={styles["title"]}>
-            <Typography variant={TypographyVariant.H2}>All products</Typography>
-          </div>
-          <div className={styles["search-form-container"]}>
-            <SearchForm {...searchFormData} />
-          </div>
-          <div className={styles["product-list-container"]}>{content}</div>
-        </div>
-      </section>
-    </BaseLayout>
+    <BaseTemplate title="All Products">
+      <div className={styles["search-form-container"]}>
+        <SearchForm {...searchFormData} />
+      </div>
+      <div className={styles["product-list-container"]}>{content}</div>
+    </BaseTemplate>
   );
 };
 

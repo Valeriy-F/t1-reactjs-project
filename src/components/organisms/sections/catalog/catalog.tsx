@@ -32,6 +32,7 @@ const Catalog = () => {
             currentCategory={productsFilter.category}
             handleFormSubmit={handleProductFilterFormSubmit}
             handleFormReset={handleFormReset}
+            isLoading={filtersLoading}
           />
         </div>
         <div>
