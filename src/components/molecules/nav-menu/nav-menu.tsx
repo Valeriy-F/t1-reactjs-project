@@ -1,5 +1,6 @@
 import { HTMLAttributes } from "react";
 import { NavLink } from "react-router-dom";
+import { NavHashLink } from "react-router-hash-link";
 
 import { toKey } from "../../../app/app-utils";
 import { Logo, Typography, TypographyVariant } from "../../atoms";
@@ -9,6 +10,7 @@ import styles from "./nav-menu.module.css";
 type TNavMenuItem = {
   title: string;
   url: string;
+  isAnchor?: boolean;
 };
 
 type TNavMenuProps = HTMLAttributes<HTMLElement> & {
@@ -24,15 +26,19 @@ const NavMenu = ({ items, className, ...otherProps }: TNavMenuProps) => {
         <Logo />
       </NavLink>
       <ul className={styles["menu"]}>
-        {items.map(({ title, url }) => (
-          <li key={toKey(title)} className="menu-item">
-            <NavLink to={url}>
-              <Typography variant={TypographyVariant.TEXT_SM_BOLD} color="secondary">
-                {title}
-              </Typography>
-            </NavLink>
-          </li>
-        ))}
+        {items.map(({ title, url, isAnchor = false }) => {
+          const linkTitle = (
+            <Typography variant={TypographyVariant.TEXT_SM_BOLD} color="secondary">
+              {title}
+            </Typography>
+          );
+
+          return (
+            <li key={toKey(title)} className="menu-item">
+              {isAnchor ? <NavHashLink to={url}>{linkTitle}</NavHashLink> : <NavLink to={url}>{linkTitle}</NavLink>}
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

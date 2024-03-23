@@ -13,7 +13,7 @@ const filterProductsQueryDataInitialState = {
     category: null,
   },
   queryParams: {
-    limit: 3,
+    limit: 9,
     skip: 0,
     select: [],
   },
@@ -24,7 +24,7 @@ const searchProductsQueryDataInitialState = {
     title: "",
   },
   queryParams: {
-    limit: 3,
+    limit: 9,
     skip: 0,
     select: [],
   },

@@ -11,20 +11,20 @@ import Team from "../../organisms/sections/team/team";
 import styles from "./home.module.css";
 
 const headerMenuItems = [
-  { title: "Catalog", url: "#" },
-  { title: "About us", url: "#" },
-  { title: "Product selection", url: "#" },
-  { title: "Our team", url: "#" },
-  { title: "FAQ", url: "#" },
+  { title: "Catalog", url: "#catalog-section", isAnchor: true },
+  { title: "About us", url: "#about-us-section", isAnchor: true },
+  { title: "Product selection", url: "#quiz-section", isAnchor: true },
+  { title: "Our team", url: "#our-team-section", isAnchor: true },
+  { title: "FAQ", url: "#faq-section", isAnchor: true },
   { title: "For staff", url: "products" },
 ];
 
 const footerMenuItems = [
-  { title: "Catalog", url: "#" },
-  { title: "About us", url: "#" },
-  { title: "Product selection", url: "#" },
-  { title: "Our team", url: "#" },
-  { title: "FAQ", url: "#" },
+  { title: "Catalog", url: "#catalog-section", isAnchor: true },
+  { title: "About us", url: "#about-us-section", isAnchor: true },
+  { title: "Product selection", url: "#quiz-section", isAnchor: true },
+  { title: "Our team", url: "#our-team-section", isAnchor: true },
+  { title: "FAQ", url: "#faq-section", isAnchor: true },
 ];
 
 const faqSectionData = [
@@ -47,27 +47,27 @@ const Home = () => {
             <Hero />
           </div>
         </section>
-        <section className={styles["catalog-section"]}>
+        <section id="catalog-section" className={styles["catalog-section"]}>
           <div className="container">
             <Catalog />
           </div>
         </section>
-        <section className={styles["about-section"]}>
+        <section id="about-us-section" className={styles["about-section"]}>
           <div className="container">
             <About />
           </div>
         </section>
-        <section className={styles["quiz-section"]}>
+        <section id="quiz-section" className={styles["quiz-section"]}>
           <div className="container">
             <Quiz />
           </div>
         </section>
-        <section className={styles["team-section"]}>
+        <section id="our-team-section" className={styles["team-section"]}>
           <div className="container">
             <Team />
           </div>
         </section>
-        <section className={styles["faq-section"]}>
+        <section id="faq-section" className={styles["faq-section"]}>
           <div className="container">
             <Faq data={faqSectionData} />
           </div>
