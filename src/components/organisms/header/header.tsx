@@ -9,7 +9,7 @@ type THeaderProps = {
 const Header = ({ menuItems = [] }: THeaderProps) => {
   return (
     <>
-      <NavMenu items={menuItems} className={styles.nav} />
+      <NavMenu items={menuItems} className={styles.nav} color="secondary" />
     </>
   );
 };

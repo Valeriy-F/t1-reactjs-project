@@ -1,8 +1,8 @@
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 250px;
-  width: 32%;
+  width: 240px;
 }
 
 .image-container {
@@ -21,4 +21,12 @@
   padding: 10px 0 2px;
 }
 
-.price {}
+.overlay {
+  border-radius: var(--border-radius);
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: 80%;
+  }
+}

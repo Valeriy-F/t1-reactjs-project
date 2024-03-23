@@ -30,7 +30,7 @@ const SearchForm = ({ size = "md", onFormSubmit, onInputValueChange }: TSearchFo
       }}
     >
       <div className={styles["container"]}>
-        <div>
+        <div className={styles["input-container"]}>
           <Text
             placeholder="Search by title"
             value={inputValue}
@@ -44,8 +44,8 @@ const SearchForm = ({ size = "md", onFormSubmit, onInputValueChange }: TSearchFo
             }}
           />
         </div>
-        <div>
-          <Button type="submit" color="secondary" size={size}>
+        <div className={styles["button-container"]}>
+          <Button type="submit" color="secondary" size={size} className={styles["search-button"]}>
             Search
           </Button>
         </div>

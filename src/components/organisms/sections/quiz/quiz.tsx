@@ -39,13 +39,15 @@ const Quiz = () => {
         <div className={styles["footer__border-top"]}>
           <Line color="primary-light" />
         </div>
-        <div>
-          <Typography variant={TypographyVariant.TEXT_BOLD} color="primary-light">
-            1 of 2
-          </Typography>
-        </div>
-        <div className={styles["footer__actions"]}>
-          <Button color="primary-transparent">Next step</Button>
+        <div className={styles["footer__content"]}>
+          <div>
+            <Typography variant={TypographyVariant.TEXT_BOLD} color="primary-light">
+              1 of 2
+            </Typography>
+          </div>
+          <div className={styles["footer__actions"]}>
+            <Button color="primary-transparent">Next step</Button>
+          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { Button, Typography, TypographyVariant } from "../../../atoms";
+import { Button, ButtonLink, Typography, TypographyVariant } from "../../../atoms";
 
 import styles from "./hero.module.css";
 
@@ -16,9 +16,9 @@ const Hero = () => {
         </Typography>
       </div>
       <div className={styles.actions}>
-        <Button color="secondary" size="lg" aria-label="Go to shopping">
+        <ButtonLink href="/products" variant="button" color="secondary" size="lg" aria-label="Go to shopping">
           Go to shopping
-        </Button>
+        </ButtonLink>
       </div>
     </div>
   );

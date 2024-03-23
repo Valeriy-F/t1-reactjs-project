@@ -1,5 +1,5 @@
 import { IProduct } from "../../../models/product";
-import Button from "../../atoms/button/button";
+import { Button } from "../../atoms/button/button";
 
 import ProductListItem from "./product-list-item";
 

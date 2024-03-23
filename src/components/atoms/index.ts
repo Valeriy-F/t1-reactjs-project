@@ -1,4 +1,4 @@
-export { default as Button } from "./button/button";
+export { Button, ButtonLink } from "./button/button";
 export { default as Checkbox } from "./checkbox/checkbox";
 export { default as IconCross } from "./icon-cross/icon-cross";
 export { default as Image, type TImageProps } from "./image/image";

@@ -15,17 +15,24 @@ type TNavMenuItem = {
 
 type TNavMenuProps = HTMLAttributes<HTMLElement> & {
   items: TNavMenuItem[];
+  color?: "primary" | "secondary";
+  slideDirection?: "up" | "down";
 };
 
-const NavMenu = ({ items, className, ...otherProps }: TNavMenuProps) => {
+const NavMenu = ({ items, className, color = "primary", slideDirection = "down", ...otherProps }: TNavMenuProps) => {
   const extraClasses = className ? ` ${className}` : "";
+  const toggleButtonKey = "menu-toggle_" + Math.random();
 
   return (
     <nav className={styles["nav-menu"] + extraClasses} {...otherProps}>
       <NavLink to="/" className={styles["link-logo"]}>
         <Logo />
       </NavLink>
-      <ul className={styles["menu"]}>
+      <input id={toggleButtonKey} className={styles["menu-toggle"]} type="checkbox" />
+      <label className={styles["menu-button-container"]} htmlFor={toggleButtonKey}>
+        <div className={styles["menu-button"]}></div>
+      </label>
+      <ul className={`${styles["menu"]} ${styles["menu_" + color]} ${styles["menu_" + slideDirection]}`}>
         {items.map(({ title, url, isAnchor = false }) => {
           const linkTitle = (
             <Typography variant={TypographyVariant.TEXT_SM_BOLD} color="secondary">

@@ -2,7 +2,7 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 
 import { IProduct } from "../../../models/product";
-import { Image, Typography, TypographyVariant } from "../../atoms";
+import { Image, Overlay, Typography, TypographyVariant } from "../../atoms";
 
 import styles from "./product-list-item.module.css";
 
@@ -18,6 +18,7 @@ const ProductListItem = ({ product }: TProductListItemProps) => {
 
   return (
     <div className={styles.container}>
+      <Overlay className={styles["overlay"]}></Overlay>
       <Link to={`/products/${product.id}`}>
         <div className={styles["image-container"]}>
           <Image className={styles["product-image"]} {...imageData} />

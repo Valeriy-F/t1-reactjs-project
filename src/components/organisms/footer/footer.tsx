@@ -9,7 +9,7 @@ type TFooterProps = {
 const Footer = ({ menuItems = [] }: TFooterProps) => {
   return (
     <div className={styles["content-container"]}>
-      <NavMenu items={menuItems} />
+      <NavMenu items={menuItems} slideDirection="up" />
     </div>
   );
 };

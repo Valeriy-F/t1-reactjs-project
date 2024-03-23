@@ -1,18 +1,134 @@
 .nav-menu {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
 }
 
 .menu {
-    display: flex;
-    column-gap: 36px;
-    padding: 0 1px 0;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 36px;
+  padding: 0 1px 0;
+}
+
+.menu-button-container {
+  display: none;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+  display: block;
+  background-color: var(--color-white);
+  position: absolute;
+  height: 3px;
+  width: 30px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+}
+
+.menu-button::before {
+  content: '';
+  margin-top: -8px;
+}
+
+.menu-button::after {
+  content: '';
+  margin-top: 8px;
 }
 
 .link-logo {
-    display: inline-flex;
+  display: inline-flex;
+}
+
+@media (max-width: 767px) {
+  .menu-button-container {
+    display: flex;
+  }
+
+  .menu {
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menu_up {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 51px;
+    left: 0;
+  }
+
+  .menu_down {
+    position: absolute;
+    top: 0;
+    margin-top: 51px;
+    left: 0;
+  }
+
+  .menu-toggle~.menu li {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .menu-toggle:checked+.menu-button-container .menu-button::before {
+    margin-top: 0px;
+    transform: rotate(45deg);
+  }
+
+  .menu-toggle:checked+.menu-button-container .menu-button {
+    background: rgba(255, 255, 255, 0);
+  }
+
+  .menu-toggle:checked+.menu-button-container .menu-button::after {
+    margin-top: 0px;
+    transform: rotate(-45deg);
+  }
+
+  .menu-toggle:checked~.menu li {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--color-white);
+    height: 3rem;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .menu>li {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0.5em 0;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .menu_primary {
+    background-color: var(--color-gray);
+  }
+
+  .menu_secondary {
+    background-color: var(--color-orange);
+  }
 }

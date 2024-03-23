@@ -1,5 +1,23 @@
 .container {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  column-gap: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+.input-container {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  .search-button {
+    width: 100%;
+  }
 }

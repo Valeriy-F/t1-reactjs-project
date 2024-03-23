@@ -26,7 +26,7 @@ const Catalog = () => {
         <Typography variant={TypographyVariant.H2}>Catalog</Typography>
       </div>
       <div className={styles["content-container"]}>
-        <div>
+        <div className={styles["filters-panel"]}>
           <ProductFilter
             categoriesFilterData={categoriesFilterData}
             currentCategory={productsFilter.category}
@@ -35,7 +35,7 @@ const Catalog = () => {
             isLoading={filtersLoading}
           />
         </div>
-        <div>
+        <div className={styles["products-list"]}>
           {isLoading ? (
             "Product Loading..."
           ) : (

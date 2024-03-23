@@ -1,43 +1,54 @@
 .content-container {
-    background-image: url('../../../../images/hero_bg@3x.webp');
-    background-size: 89%;
-    background-repeat: no-repeat;
-    background-position: left 50px bottom 73px;
-    height: 528px;
-    padding: 152px 0;
+  background-image: url('../../../../images/hero_bg@3x.webp');
+  background-size: 89%;
+  background-repeat: no-repeat;
+  background-position: left 50px bottom 73px;
+  height: 528px;
+  padding: 152px 0;
 }
 
 .title {
-    width: 560px;
-    padding: 10px 0;
+  width: 560px;
+  padding: 10px 0;
 }
 
 .subtitle {
-    width: 350px;
-    padding: 6px 0;
+  width: 350px;
+  padding: 6px 0;
 }
 
 .actions {
-    margin: 15px 0;
-    padding: 16px;
+  margin: 37px 0;
+  padding: 16px;
 }
 
 @media (max-width: 1199px) {}
 
 @media (max-width: 991px) {
-    .content-container {
-        background-image: url('../../../../images/hero_bg@3x.webp');
-    }
+  .content-container {
+    background-image: url('../../../../images/hero_bg@3x.webp');
+  }
 }
 
 @media (max-width: 767px) {
-    .content-container {
-        background-image: url('../../../../images/hero_bg@2x.webp');
-    }
+  .content-container {
+    background-image: url('../../../../images/hero_bg@2x.webp');
+  }
+
+  .title {
+    width: 100%;
+  }
+
+  .subtitle {
+    width: 100%;
+  }
 }
 
 @media (max-width: 575px) {
-    .content-container {
-        background-image: url('../../../../images/hero_bg@1x.webp');
-    }
+  .content-container {
+    height: 100%;
+    padding: 110px 0 55px;
+    background-image: url('../../../../images/hero_bg@1x.webp');
+    background-position: center bottom 20px;
+  }
 }
