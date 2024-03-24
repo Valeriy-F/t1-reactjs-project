@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 
-import { ErrorPage, MainPage, ProductDetailsPage, ProductListPage } from "../pages";
+import { Error404Page, MainPage, ProductDetailsPage, ProductListPage } from "../pages";
 
 const Routing = () => {
   return (
@@ -8,7 +8,7 @@ const Routing = () => {
       <Route path={`/products/:id`} element={<ProductDetailsPage />} />
       <Route path={`/products`} element={<ProductListPage />} />
       <Route path="/" element={<MainPage />} />
-      <Route path="*" element={<ErrorPage />} />
+      <Route path="*" element={<Error404Page />} />
     </Routes>
   );
 };

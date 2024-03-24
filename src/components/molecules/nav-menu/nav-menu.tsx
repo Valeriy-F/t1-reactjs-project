@@ -1,6 +1,6 @@
 import { HTMLAttributes } from "react";
 import { NavLink } from "react-router-dom";
-import { NavHashLink } from "react-router-hash-link";
+import { HashLink } from "react-router-hash-link";
 
 import { toKey } from "../../../app/app-utils";
 import { Logo, Typography, TypographyVariant } from "../../atoms";
@@ -42,7 +42,7 @@ const NavMenu = ({ items, className, color = "primary", slideDirection = "down",
 
           return (
             <li key={toKey(title)} className="menu-item">
-              {isAnchor ? <NavHashLink to={url}>{linkTitle}</NavHashLink> : <NavLink to={url}>{linkTitle}</NavLink>}
+              {isAnchor ? <HashLink to={url}>{linkTitle}</HashLink> : <NavLink to={url}>{linkTitle}</NavLink>}
             </li>
           );
         })}

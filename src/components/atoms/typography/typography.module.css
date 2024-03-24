@@ -75,3 +75,7 @@
 .color-secondary {
     color: var(--text-color-secondary)
 }
+
+.color-important {
+  color: var(--text-color-important)
+}

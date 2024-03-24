@@ -17,6 +17,7 @@
   --text-color-primary: var(--color-gray);
   --text-color-primary-light: var(--color-gray-light);
   --text-color-secondary: var(--color-white);
+  --text-color-important: var(--color-orange);
 
   --font-size-sm: 0.875rem;
   --font-size-md: 1rem;

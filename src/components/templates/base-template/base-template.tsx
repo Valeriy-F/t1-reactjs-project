@@ -27,9 +27,11 @@ const BaseTemplate = ({
         <section>
           <div className="container">
             <div className={styles["content-container"]}>
-              <div className={styles["title"]}>
-                <Typography variant={TypographyVariant.H2}>{title}</Typography>
-              </div>
+              {title && (
+                <div className={styles["title"]}>
+                  <Typography variant={TypographyVariant.H2}>{title}</Typography>
+                </div>
+              )}
               <div className={styles["content"]}>{children}</div>
             </div>
           </div>

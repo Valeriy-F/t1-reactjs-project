@@ -4,7 +4,7 @@ import styles from "./typography.module.css";
 
 type TTypographyProps = PropsWithChildren & {
   variant?: ETypographyVariant;
-  color?: "primary" | "primary-light" | "secondary";
+  color?: "primary" | "primary-light" | "secondary" | "important";
 };
 
 type TTypographyComponent = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p";
