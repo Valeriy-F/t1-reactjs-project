@@ -1,4 +1,4 @@
-import { Button, ButtonLink, Typography, TypographyVariant } from "../../../atoms";
+import { ButtonLink, Typography, TypographyVariant } from "../../../atoms";
 
 import styles from "./hero.module.css";
 

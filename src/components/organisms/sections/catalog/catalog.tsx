@@ -1,5 +1,6 @@
 import { useFilterProductsQuery, useGetProducsCategoriesQuery } from "../../../../store/product";
 import { Typography, TypographyVariant } from "../../../atoms";
+import { Loading } from "../../../molecules";
 import ProductFilter, { IProductFilterFormData } from "../../product-filter/product-filter";
 import ProductList from "../../product-list/product-list";
 
@@ -37,7 +38,7 @@ const Catalog = () => {
         </div>
         <div className={styles["products-list"]}>
           {isLoading ? (
-            "Product Loading..."
+            <Loading text="Product list loading..." />
           ) : (
             <ProductList products={products} onShowMoreClick={fetchMoreData} isAllDataFetched={isAllDataFetched} />
           )}

@@ -1,5 +1,6 @@
 import { useGetProducsCategoriesQuery } from "../../../../store/product";
 import { Button, Checkbox, Line, Typography, TypographyVariant } from "../../../atoms";
+import { Loading } from "../../../molecules";
 
 import styles from "./quiz.module.css";
 
@@ -24,7 +25,7 @@ const Quiz = () => {
           <Typography variant={TypographyVariant.H3}>What type of product are you considering?</Typography>
         </div>
         {isLoading ? (
-          "Categories loading..."
+          <Loading text="Categories loading..." />
         ) : (
           <div className={styles["choice-list"]}>
             {categories?.map((categery) => (

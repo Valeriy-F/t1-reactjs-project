@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 
+import { Loading } from "../components/molecules";
 import { ErrorTemplate, ProductDetailsTemplate } from "../components/templates";
 import BaseTemplate from "../components/templates/base-template/base-template";
 import { IResponseError } from "../models/app";
@@ -17,7 +18,11 @@ const ProductDetails = () => {
   }
 
   if (isLoading) {
-    return <BaseTemplate>Loading...</BaseTemplate>;
+    return (
+      <BaseTemplate>
+        <Loading text="Product details loading..." />
+      </BaseTemplate>
+    );
   }
 
   return <ProductDetailsTemplate product={product} />;

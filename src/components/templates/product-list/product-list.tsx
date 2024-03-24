@@ -1,4 +1,4 @@
-import { SearchForm, TSearchFormProps } from "../../molecules";
+import { Loading, SearchForm, TSearchFormProps } from "../../molecules";
 import { ProductList, TProductListProps } from "../../organisms";
 import BaseTemplate from "../base-template/base-template";
 
@@ -11,7 +11,7 @@ type TProductListTemplateProps = {
 };
 
 const ProductListTemplate = ({ isLoading = false, productListData, searchFormData }: TProductListTemplateProps) => {
-  const content = isLoading ? "Loading..." : <ProductList {...productListData} />;
+  const content = isLoading ? <Loading text="Product list loading..." /> : <ProductList {...productListData} />;
 
   return (
     <BaseTemplate title="All Products">
