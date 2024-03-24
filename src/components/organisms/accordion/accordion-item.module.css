@@ -1,40 +1,39 @@
 .content-container {
-    padding: 27px 0;
+  padding: 27px 0;
 }
 
 .header {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    padding: 2px 0 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 2px 0 0;
 }
 
 .content {
-    overflow: hidden;
-    max-height: 0px;
-    transition: max-height 1s cubic-bezier(0, 1, 0, 1);
-}
-
-.open {
-    ~.content {
-        transition: max-height 2s ease-in-out;
-        max-height: 1000px;
-        margin: 16px 0 10px;
-    }
-}
-
-.closed {
-    & .toggle-button {
-        transform: rotate(45deg);
-    }
+  overflow: hidden;
+  max-height: 0px;
+  margin: 0;
+  opacity: 0;
+  transition: all 1s cubic-bezier(0, 1, 0, 1);
 }
 
 .toggle-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.5s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.content-open {
+  transition: max-height 2s ease-in-out;
+  max-height: 1000px;
+  margin: 16px 0 10px;
+  opacity: 1;
+}
+
+.button-open {
+  transform: rotate(45deg);
 }

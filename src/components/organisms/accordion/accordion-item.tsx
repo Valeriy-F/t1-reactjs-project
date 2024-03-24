@@ -1,4 +1,4 @@
-import { PropsWithChildren, useRef } from "react";
+import { PropsWithChildren, useState } from "react";
 
 import { IconCross, Line, Typography, TypographyVariant } from "../../atoms";
 
@@ -9,48 +9,34 @@ type TAccordionItemProps = PropsWithChildren & {
 };
 
 const AccordionItem = ({ title, children }: TAccordionItemProps) => {
-  const contentBlockRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const isContentBlockOpen = () => {
-    return contentBlockRef.current && contentBlockRef.current.classList.contains(styles["open"]);
-  };
-
-  const toggleContentBlockClass = () => {
-    if (!contentBlockRef.current) {
-      return;
-    }
-
-    const contentBlockClassList = contentBlockRef.current.classList;
-
-    if (contentBlockClassList.contains(styles["open"])) {
-      contentBlockClassList.remove(styles["open"]);
-      contentBlockClassList.add(styles["closed"]);
-    } else if (contentBlockClassList.contains(styles["closed"])) {
-      contentBlockClassList.remove(styles["closed"]);
-      contentBlockClassList.add(styles["open"]);
-    }
+  const toggle = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
     <>
       <div className={`${styles["content-container"]}`}>
         <div
-          ref={contentBlockRef}
           className={`${styles["header"]} ${styles["closed"]}`}
           onClick={() => {
-            toggleContentBlockClass();
+            toggle();
           }}
         >
           <div>
             <Typography variant={TypographyVariant.TEXT_LG}>{title}</Typography>
           </div>
           <div>
-            <button className={styles["toggle-button"]} aria-label={isContentBlockOpen() ? "Close" : "Open"}>
+            <button
+              className={`${styles["toggle-button"]} ${!isOpen && styles["button-open"]}`}
+              aria-label={isOpen ? "Close" : "Open"}
+            >
               <IconCross />
             </button>
           </div>
         </div>
-        <div className={`${styles.content}`}>{children}</div>
+        <div className={`${styles.content} ${isOpen && styles["content-open"]}`}>{children}</div>
       </div>
       <Line />
     </>
