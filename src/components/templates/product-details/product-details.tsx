@@ -1,4 +1,5 @@
 import { Carousel } from "react-responsive-carousel";
+import { Rating } from "react-simple-star-rating";
 
 import { applyDiscount, intToLeadingZerosString } from "../../../app/app-utils";
 import { IProduct } from "../../../models/product";
@@ -46,7 +47,19 @@ const ProductDetails = ({ product }: TProductDetailesProps) => {
             </div>
           </div>
           <div className={styles["info__items"]}>
-            <ProductDetailsItem name="Raiting" value={<div>{product.rating} of stars</div>} />
+            <ProductDetailsItem
+              name="Raiting"
+              value={
+                <Rating
+                  initialValue={product.rating}
+                  size={30}
+                  fillClassName={styles["rating-fill-color"]}
+                  readonly={true}
+                  allowFraction={true}
+                  allowTitleTag={false}
+                />
+              }
+            />
             <ProductDetailsItem name="Base ptice" value={`${product.price}$`} />
             <ProductDetailsItem name="Discount percentage" value={`${product.discountPercentage}%`} />
             <ProductDetailsItem

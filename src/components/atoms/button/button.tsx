@@ -16,7 +16,7 @@ type TButtonLinkProps = LinkHTMLAttributes<HTMLAnchorElement> & {
 
 const Button = ({
   children,
-  variant = "link",
+  variant = "button",
   size = "md",
   color = "primary",
   className = "",
@@ -37,7 +37,7 @@ const Button = ({
 
 const ButtonLink = ({
   children,
-  variant = "button",
+  variant = "link",
   size = "md",
   color = "primary",
   className = "",

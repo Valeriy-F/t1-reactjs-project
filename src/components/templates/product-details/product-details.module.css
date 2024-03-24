@@ -31,3 +31,8 @@
   flex-direction: column;
   gap: 20px;
 }
+
+.rating-fill-color {
+  /* "!important" is used to override inline styles of the "react-simple-star-rating" component. */
+  color: var(--color-orange) !important;
+}

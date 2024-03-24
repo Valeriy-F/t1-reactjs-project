@@ -18,8 +18,12 @@ const ProductListItem = ({ product }: TProductListItemProps) => {
 
   return (
     <div className={styles.container}>
-      <Overlay className={styles["overlay"]}></Overlay>
       <Link to={`/products/${product.id}`}>
+        <Overlay className={styles["overlay"]}>
+          <Typography variant={TypographyVariant.TEXT_XL_BOLD} color="secondary">
+            Show more details
+          </Typography>
+        </Overlay>
         <div className={styles["image-container"]}>
           <Image className={styles["product-image"]} {...imageData} />
         </div>
