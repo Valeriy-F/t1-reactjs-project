@@ -1,3 +1,5 @@
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+
 import {
   IProduct,
   IProductsFilterRequest,
@@ -57,6 +59,34 @@ const productApi = baseApi.injectEndpoints({
     getProducsCategories: build.query<string[], null>({
       query: () => ({ url: "products/categories" }),
     }),
+    getProductsByCategories: build.query<IProduct[], { categories: string[]; queryParams?: IProductsQueryParams }>({
+      async queryFn(arg, api, extraOptions, baseQuery) {
+        const productsByCategories: IProduct[] = [];
+        const errors: FetchBaseQueryError[] = [];
+
+        const productsByCategoriesQueryResult = await Promise.all(
+          arg.categories.map((category) => {
+            return baseQuery({
+              url: `products/category/${category}`,
+              params: arg.queryParams ? generateSelectQueryParams(arg.queryParams) : undefined,
+            });
+          })
+        );
+
+        productsByCategoriesQueryResult.forEach((productsByCategoryQueryResult) => {
+          if (productsByCategoryQueryResult.error) {
+            errors.push(productsByCategoryQueryResult.error);
+          }
+
+          if (productsByCategoryQueryResult.data) {
+            const productsResponse = productsByCategoryQueryResult.data as IProductsResponse;
+            productsByCategories.push(...productsResponse.products);
+          }
+        });
+
+        return errors.length ? { error: errors[0] } : { data: productsByCategories };
+      },
+    }),
   }),
 });
 
@@ -67,4 +97,5 @@ export const {
   useGetProductsBySearchQuery,
   useGetProducsCategoriesQuery,
   useGetProductQuery,
+  useGetProductsByCategoriesQuery,
 } = productApi;

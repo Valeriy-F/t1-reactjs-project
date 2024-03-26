@@ -1,0 +1,8 @@
+.choice-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 218px);
+  row-gap: 29px;
+  column-gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+}

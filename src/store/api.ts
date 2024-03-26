@@ -27,7 +27,7 @@ const baseApi = createApi({
   reducerPath: "api",
   tagTypes: [],
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
-  endpoints: (builder) => ({}),
+  endpoints: () => ({}),
 });
 
 export { baseApi, transformErrorResponseBuilder };

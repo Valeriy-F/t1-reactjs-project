@@ -24,12 +24,12 @@ const ProductList = ({
         {products?.map((product) => <ProductListItem key={product.id} product={product} />)}
       </div>
       <div className={styles.actions}>
-        {!isAllDataFetched && (
+        {!isAllDataFetched && onShowMoreClick && (
           <Button
             color="secondary"
             size="lg"
             onClick={() => {
-              onShowMoreClick && onShowMoreClick();
+              onShowMoreClick();
             }}
           >
             {isLoading ? "Loding..." : "Show more"}
