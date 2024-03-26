@@ -21,6 +21,7 @@ const CategoryFilter = ({ filters = [], chackedValue, onCheck }: TCategoryFilter
               label={<Typography variant={TypographyVariant.TEXT_BOLD}>{label}</Typography>}
               defaultValue={value}
               checked={isChecked}
+              isRadioVisible={false}
               onChange={() => {
                 onCheck && onCheck(value);
               }}

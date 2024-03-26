@@ -35,10 +35,8 @@ const ImageGallery = ({ imagesData = [], settings = {} }: TImageGalleryProps) =>
     <div className={styles["content-container"]}>
       <div className={styles["grid"]}>
         {columns.map((column, index) => {
-          const coulmnClass = index % 2 === 0 ? styles["grid__column-odd"] : styles["grid__column-even"];
-
           return (
-            <div key={`column-${index}`} className={coulmnClass}>
+            <div key={`column-${index}`} className={styles["grid__column"]}>
               {column.map((image) => image)}
             </div>
           );
