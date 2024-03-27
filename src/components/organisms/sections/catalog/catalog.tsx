@@ -40,7 +40,12 @@ const Catalog = () => {
           {isLoading ? (
             <Loading text="Product list loading..." />
           ) : (
-            <ProductList products={products} onShowMoreClick={fetchMoreData} isAllDataFetched={isAllDataFetched} />
+            <ProductList
+              products={products}
+              onShowMoreClick={fetchMoreData}
+              isAllDataFetched={isAllDataFetched}
+              listClassName={styles["product-list-grid"]}
+            />
           )}
         </div>
       </div>

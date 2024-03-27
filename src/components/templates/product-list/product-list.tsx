@@ -11,7 +11,11 @@ type TProductListTemplateProps = {
 };
 
 const ProductListTemplate = ({ isLoading = false, productListData, searchFormData }: TProductListTemplateProps) => {
-  const content = isLoading ? <Loading text="Product list loading..." /> : <ProductList {...productListData} />;
+  const content = isLoading ? (
+    <Loading text="Product list loading..." />
+  ) : (
+    <ProductList {...productListData} listClassName={styles["product-list-grid"]} />
+  );
 
   return (
     <BaseTemplate title="All Products">

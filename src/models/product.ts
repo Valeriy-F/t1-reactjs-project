@@ -1,3 +1,5 @@
+import { ISorting } from "./app";
+
 interface IProduct {
   id: number;
   title: string;
@@ -37,8 +39,10 @@ interface IProductsQueryParams {
   limit?: number;
   skip?: number;
   select?: Array<keyof IProduct>;
+  sorting?: TProducsSorting;
 }
 
+type TProducsSorting = ISorting<Exclude<keyof IProduct, "thumbnail" | "images">>;
 interface IProductsFilter {
   category?: string | null;
 }
@@ -59,6 +63,7 @@ export {
   type IProductsResponseError,
   type IProductsSearch,
   type IProductsSearchRequest,
+  type TProducsSorting,
 };
 
 export { isProductsResponseErrorType };

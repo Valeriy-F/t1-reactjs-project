@@ -10,21 +10,23 @@ type TProductListProps = {
   onShowMoreClick?: () => void;
   isAllDataFetched?: boolean;
   isLoading?: boolean;
+  listClassName?: string;
 };
 
 const ProductList = ({
   products = [],
   onShowMoreClick,
+  listClassName,
   isAllDataFetched = false,
   isLoading = false,
 }: TProductListProps) => {
   return (
     <div className={styles.container}>
-      <div className={styles.list}>
+      <div className={`${styles.list}${listClassName ? ` ${listClassName}` : ""}`}>
         {products?.map((product) => <ProductListItem key={product.id} product={product} />)}
       </div>
-      <div className={styles.actions}>
-        {!isAllDataFetched && onShowMoreClick && (
+      {!isAllDataFetched && onShowMoreClick && (
+        <div className={styles.actions}>
           <Button
             color="secondary"
             size="lg"
@@ -34,8 +36,8 @@ const ProductList = ({
           >
             {isLoading ? "Loding..." : "Show more"}
           </Button>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

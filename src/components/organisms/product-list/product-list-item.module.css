@@ -2,14 +2,13 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 240px;
+  justify-content: space-between;
 }
 
 .image-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px;
 }
 
 .product-image {
@@ -23,10 +22,4 @@
 
 .overlay {
   border-radius: var(--border-radius);
-}
-
-@media (max-width: 767px) {
-  .container {
-    width: 80%;
-  }
 }

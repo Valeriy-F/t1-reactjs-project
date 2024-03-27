@@ -36,14 +36,14 @@ const QuizLayout = ({
             <Typography variant={TypographyVariant.H2}>{title}</Typography>
           </div>
         )}
-        <div>
+        <div className={styles.subtitle}>
           {subtitle && (
             <Typography variant={TypographyVariant.TEXT_BOLD} color="primary-light">
               {subtitle}
             </Typography>
           )}
-          <Line color="primary-light" />
         </div>
+        <Line color="primary-light" />
       </div>
       <div className={styles.body}>
         {bodyTitle && (

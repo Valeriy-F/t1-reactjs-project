@@ -10,7 +10,12 @@
 .header {
   display: flex;
   flex-direction: column;
-  row-gap: 7px;
+}
+
+.subtitle {
+  display: flex;
+  align-items: flex-end;
+  min-height: 33px;
 }
 
 .body {
@@ -38,7 +43,6 @@
   grid-template-rows: auto auto;
   row-gap: 20px;
   align-items: center;
-  padding: 36px 0 0;
 }
 
 .footer__content {

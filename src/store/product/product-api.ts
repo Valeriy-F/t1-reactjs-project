@@ -1,5 +1,6 @@
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 
+import { applySorting } from "../../app/app-utils";
 import {
   IProduct,
   IProductsFilterRequest,
@@ -7,6 +8,7 @@ import {
   IProductsResponse,
   IProductsSearchRequest,
   isProductsResponseErrorType,
+  TProducsSorting,
 } from "../../models/product";
 import { baseApi, transformErrorResponseBuilder } from "../api";
 
@@ -84,7 +86,15 @@ const productApi = baseApi.injectEndpoints({
           }
         });
 
-        return errors.length ? { error: errors[0] } : { data: productsByCategories };
+        if (errors.length) {
+          return { error: errors[0] };
+        }
+
+        const sorting = arg.queryParams?.sorting;
+
+        return sorting
+          ? { data: applySorting<IProduct, TProducsSorting>(productsByCategories, sorting) }
+          : { data: productsByCategories };
       },
     }),
   }),
