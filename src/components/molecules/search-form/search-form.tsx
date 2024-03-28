@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Button, Text } from "../../atoms";
+import { Button, InputText } from "../../atoms";
 
 import styles from "./search-form.module.css";
 
@@ -31,7 +31,7 @@ const SearchForm = ({ size = "md", onFormSubmit, onInputValueChange }: TSearchFo
     >
       <div className={styles["container"]}>
         <div className={styles["input-container"]}>
-          <Text
+          <InputText
             placeholder="Search by title"
             value={inputValue}
             size={size}

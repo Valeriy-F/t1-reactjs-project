@@ -1,6 +1,6 @@
 import { debounce } from "../app/app-utils";
 import { ISearchFormData } from "../components/molecules/search-form/search-form";
-import { ErrorTemplate, ProductListTemplate, TProductListTemplateProps } from "../components/templates";
+import { InfoTemplate, ProductListTemplate, TProductListTemplateProps } from "../components/templates";
 import { useSearchProductsQuery } from "../store/product";
 
 const ProductList = () => {
@@ -9,9 +9,9 @@ const ProductList = () => {
 
   if (isError) {
     return (
-      <ErrorTemplate>
+      <InfoTemplate>
         <>Error</>
-      </ErrorTemplate>
+      </InfoTemplate>
     );
   }
 

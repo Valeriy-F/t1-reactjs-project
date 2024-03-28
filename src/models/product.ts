@@ -51,6 +51,10 @@ interface IProductsSearch {
   title?: string;
 }
 
+type TProductAware = {
+  product: IProduct;
+};
+
 const isProductsResponseErrorType = (responseError: object): responseError is IProductsResponseError =>
   "message" in responseError;
 
@@ -64,6 +68,7 @@ export {
   type IProductsSearch,
   type IProductsSearchRequest,
   type TProducsSorting,
+  type TProductAware,
 };
 
 export { isProductsResponseErrorType };

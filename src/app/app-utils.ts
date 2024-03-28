@@ -71,4 +71,12 @@ const compare = (value1: unknown, value2: unknown, compareStrategy: "number" | "
   return compareResult;
 };
 
-export { applyDiscount, applySorting, debounce, intToLeadingZerosString, toKey };
+const parseNumber = (value: number | string, toFixedNumber = 0) => {
+  const normalizedValue = value ? value : 0;
+  const numberValue = typeof normalizedValue === "string" ? parseFloat(normalizedValue) : normalizedValue;
+  const fixedValue = numberValue.toFixed(toFixedNumber);
+
+  return toFixedNumber <= 0 ? parseInt(fixedValue) : parseFloat(fixedValue);
+};
+
+export { applyDiscount, applySorting, debounce, intToLeadingZerosString, parseNumber, toKey };

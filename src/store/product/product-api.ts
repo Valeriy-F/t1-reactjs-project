@@ -20,22 +20,28 @@ const generateSelectQueryParams = ({ limit = 0, skip = 0, select = [] }: IProduc
   };
 };
 
+const createProductResponseDataTransform = (fallbackMessage = "") => {
+  return (data: unknown) => {
+    if (typeof data === "string") {
+      return data;
+    }
+
+    if (data && typeof data === "object" && isProductsResponseErrorType(data)) {
+      return data.message;
+    }
+
+    return fallbackMessage;
+  };
+};
+
 const productApi = baseApi.injectEndpoints({
   overrideExisting: true,
   endpoints: (build) => ({
     getProduct: build.query<IProduct, string>({
       query: (id) => ({ url: `products/${id}` }),
-      transformErrorResponse: transformErrorResponseBuilder((data: unknown) => {
-        if (typeof data === "string") {
-          return data;
-        }
-
-        if (data && typeof data === "object" && isProductsResponseErrorType(data)) {
-          return data.message;
-        }
-
-        return "Failed to fetch product";
-      }),
+      transformErrorResponse: transformErrorResponseBuilder(
+        createProductResponseDataTransform("Failed to fetch product")
+      ),
     }),
     getProductsByFilter: build.query<IProductsResponse, IProductsFilterRequest>({
       query: ({ filter, queryParams }) => {
@@ -65,7 +71,6 @@ const productApi = baseApi.injectEndpoints({
       async queryFn(arg, api, extraOptions, baseQuery) {
         const productsByCategories: IProduct[] = [];
         const errors: FetchBaseQueryError[] = [];
-
         const productsByCategoriesQueryResult = await Promise.all(
           arg.categories.map((category) => {
             return baseQuery({
@@ -97,6 +102,16 @@ const productApi = baseApi.injectEndpoints({
           : { data: productsByCategories };
       },
     }),
+    putProduct: build.mutation<IProduct, IProduct>({
+      query: ({ id, ...product }) => ({
+        url: `products/${id}`,
+        method: "PUT",
+        body: product,
+      }),
+      transformErrorResponse: transformErrorResponseBuilder(
+        createProductResponseDataTransform("Failed to update product")
+      ),
+    }),
   }),
 });
 
@@ -108,4 +123,5 @@ export const {
   useGetProducsCategoriesQuery,
   useGetProductQuery,
   useGetProductsByCategoriesQuery,
+  usePutProductMutation,
 } = productApi;

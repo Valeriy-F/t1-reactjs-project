@@ -1,14 +1,12 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
 
-import { IProduct } from "../../../models/product";
+import { TProductAware } from "../../../models/product";
 import { Image, Overlay, Typography, TypographyVariant } from "../../atoms";
 
 import styles from "./product-list-item.module.css";
 
-type TProductListItemProps = {
-  product: IProduct;
-};
+type TProductListItemProps = TProductAware;
 
 const ProductListItem = ({ product }: TProductListItemProps) => {
   const imageData = {
@@ -19,7 +17,7 @@ const ProductListItem = ({ product }: TProductListItemProps) => {
   return (
     <div className={styles.container}>
       <div className={styles["image-container"]}>
-        <Link to="#">
+        <Link to={`/products/${product.id}`}>
           <Overlay className={styles["overlay"]}>
             <Typography variant={TypographyVariant.TEXT_XL_BOLD} color="secondary">
               Show more details
