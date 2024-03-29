@@ -19,6 +19,8 @@ const generateImagesData = async (quantity: number) => {
       subtitle,
       src: `images/team-members/person_${i}@1x.webp`,
       alt: title,
+      loading: "lazy",
+      decoding: "async",
       srcSetData: {
         xl: `images/team-members/person_${i}@4x.webp`,
         lg: `images/team-members/person_${i}@3x.webp`,
@@ -35,7 +37,7 @@ const Team = () => {
   const [imagesData, setImagesData] = useState<TImages>([]);
 
   useEffect(() => {
-    generateImagesData(6).then(setImagesData).catch(console.log);
+    generateImagesData(6).then(setImagesData);
   }, []);
 
   return (

@@ -1,7 +1,7 @@
 import { FormEventHandler, useState } from "react";
 
 import { Button, Typography, TypographyVariant } from "../../atoms";
-import { Loading } from "../../molecules";
+import { LoadingBlock } from "../../molecules";
 import CategoryFilter, { TCategoryFilterProps } from "../../molecules/category-filter/category-filter";
 
 import styles from "./product-filter.module.css";
@@ -53,7 +53,7 @@ const ProductFilter = ({
       <div>
         <Typography variant={TypographyVariant.H3}>Selection by parameters</Typography>
       </div>
-      {isLoading && <Loading text="Filters loading..." />}
+      {isLoading && <LoadingBlock blockSize="sm">Filters loading...</LoadingBlock>}
       {!isLoading && categoriesFilterData.length && (
         <form action="" onSubmit={onFormSubmit}>
           <div className={styles["filter-container"]}>

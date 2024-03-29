@@ -2,7 +2,7 @@ import { ChangeEventHandler, FormEvent, useState } from "react";
 
 import { useGetProducsCategoriesQuery } from "../../../../store/product";
 import { Checkbox } from "../../../atoms";
-import { Loading } from "../../../molecules";
+import { LoadingBlock } from "../../../molecules";
 
 import { TQuizPageProps } from "./quiz";
 import QuizLayout from "./quiz-layout";
@@ -68,10 +68,10 @@ const QuizPage1 = ({
       ]}
       paginationData={paginationData}
     >
-      <form id="quiz-form" onSubmit={handleFormSubmit}>
-        {isLoading ? (
-          <Loading text="Categories loading..." />
-        ) : (
+      {isLoading ? (
+        <LoadingBlock blockSize="sm">Categories loading...</LoadingBlock>
+      ) : (
+        <form id="quiz-form" onSubmit={handleFormSubmit}>
           <div className={styles["choice-list"]}>
             {data?.map((categery) => (
               <div key={categery}>
@@ -84,8 +84,8 @@ const QuizPage1 = ({
               </div>
             ))}
           </div>
-        )}
-      </form>
+        </form>
+      )}
     </QuizLayout>
   );
 };

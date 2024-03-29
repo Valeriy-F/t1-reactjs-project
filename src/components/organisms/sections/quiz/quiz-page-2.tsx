@@ -1,5 +1,5 @@
 import { useGetProductsByCategoriesQuery } from "../../../../store/product";
-import { Loading } from "../../../molecules";
+import { LoadingBlock } from "../../../molecules";
 import ProductList from "../../product-list/product-list";
 
 import { TQuizPageProps } from "./quiz";
@@ -34,7 +34,7 @@ const QuizPage2 = ({ paginationData, onChangeSelectionButtonClick, categories = 
     >
       <div className={styles["product-list-container"]}>
         {isLoading ? (
-          <Loading text="Products loading..." />
+          <LoadingBlock blockSize="sm">Products loading...</LoadingBlock>
         ) : (
           <ProductList products={products} listClassName={styles["product-list-grid"]} />
         )}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { Loading } from "../components/molecules";
+import { LoadingBlock } from "../components/molecules";
 import { TProductEditFormData } from "../components/organisms";
 import { InfoTemplate, ProductDetailsTemplate, ResponseErrorTemplate } from "../components/templates";
 import { IResponseError } from "../models/app";
@@ -47,7 +47,7 @@ const ProductDetails = () => {
   if (isLoading || isUpdateLoading) {
     return (
       <InfoTemplate>
-        <Loading text="Product details loading..." />
+        <LoadingBlock>Product details loading...</LoadingBlock>
       </InfoTemplate>
     );
   }

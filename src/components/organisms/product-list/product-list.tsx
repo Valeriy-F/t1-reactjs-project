@@ -9,7 +9,6 @@ type TProductListProps = {
   products?: IProduct[];
   onShowMoreClick?: () => void;
   isAllDataFetched?: boolean;
-  isLoading?: boolean;
   listClassName?: string;
 };
 
@@ -18,7 +17,6 @@ const ProductList = ({
   onShowMoreClick,
   listClassName,
   isAllDataFetched = false,
-  isLoading = false,
 }: TProductListProps) => {
   return (
     <div className={styles.container}>
@@ -34,7 +32,7 @@ const ProductList = ({
               onShowMoreClick();
             }}
           >
-            {isLoading ? "Loding..." : "Show more"}
+            Show more
           </Button>
         </div>
       )}

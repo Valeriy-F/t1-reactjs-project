@@ -1,4 +1,5 @@
-import { Loading, SearchForm, TSearchFormProps } from "../../molecules";
+import { Typography, TypographyVariant } from "../../atoms";
+import { LoadingBlock, SearchForm, TSearchFormProps } from "../../molecules";
 import { ProductList, TProductListProps } from "../../organisms";
 import BaseTemplate from "../base-template/base-template";
 
@@ -11,11 +12,13 @@ type TProductListTemplateProps = {
 };
 
 const ProductListTemplate = ({ isLoading = false, productListData, searchFormData }: TProductListTemplateProps) => {
-  const content = isLoading ? (
-    <Loading text="Product list loading..." />
-  ) : (
+  let content = productListData.products?.length ? (
     <ProductList {...productListData} listClassName={styles["product-list-grid"]} />
+  ) : (
+    <Typography variant={TypographyVariant.TEXT_LG}>No results found</Typography>
   );
+
+  content = isLoading ? <LoadingBlock blockSize="sm">Product list loading...</LoadingBlock> : content;
 
   return (
     <BaseTemplate title="All Products">

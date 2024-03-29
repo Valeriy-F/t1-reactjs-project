@@ -1,6 +1,5 @@
-import { ReactElement } from "react";
-
 import { Line } from "../../atoms";
+import { Quiz } from "../../organisms";
 import Footer from "../../organisms/footer/footer";
 import Header from "../../organisms/header/header";
 import About from "../../organisms/sections/about/about";
@@ -10,10 +9,6 @@ import Hero from "../../organisms/sections/hero/hero";
 import Team from "../../organisms/sections/team/team";
 
 import styles from "./home.module.css";
-
-type THomeTemplateProps = {
-  quizSection: ReactElement;
-};
 
 const headerMenuItems = [
   { title: "Catalog", url: "#catalog-section", isAnchor: true },
@@ -37,7 +32,7 @@ const faqSectionData = [
   { quastion: "Question 2", answer: "Long answer to the second question." },
 ];
 
-const Home = ({ quizSection }: THomeTemplateProps) => {
+const Home = () => {
   return (
     <>
       <header className="header">
@@ -63,7 +58,9 @@ const Home = ({ quizSection }: THomeTemplateProps) => {
           </div>
         </section>
         <section id="quiz-section" className={styles["quiz-section"]}>
-          <div className="container">{quizSection}</div>
+          <div className="container">
+            <Quiz />
+          </div>
         </section>
         <section id="our-team-section" className={styles["team-section"]}>
           <div className="container">

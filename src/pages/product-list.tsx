@@ -1,6 +1,7 @@
 import { debounce } from "../app/app-utils";
 import { ISearchFormData } from "../components/molecules/search-form/search-form";
-import { InfoTemplate, ProductListTemplate, TProductListTemplateProps } from "../components/templates";
+import { ProductListTemplate, ResponseErrorTemplate, TProductListTemplateProps } from "../components/templates";
+import { IResponseError } from "../models/app";
 import { useSearchProductsQuery } from "../store/product";
 
 const ProductList = () => {
@@ -8,20 +9,14 @@ const ProductList = () => {
     useSearchProductsQuery();
 
   if (isError) {
-    return (
-      <InfoTemplate>
-        <>Error</>
-      </InfoTemplate>
-    );
+    return <ResponseErrorTemplate response={error as IResponseError} />;
   }
 
   const productListData: TProductListTemplateProps["productListData"] = products
     ? {
         products,
         isAllDataFetched,
-        onShowMoreClick: () => {
-          fetchMoreData();
-        },
+        onShowMoreClick: fetchMoreData,
       }
     : {};
 

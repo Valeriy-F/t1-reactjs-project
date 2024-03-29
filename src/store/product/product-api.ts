@@ -53,6 +53,9 @@ const productApi = baseApi.injectEndpoints({
           params,
         };
       },
+      transformErrorResponse: transformErrorResponseBuilder(
+        createProductResponseDataTransform("Failed to fetch products")
+      ),
     }),
     getProductsBySearch: build.query<IProductsResponse, IProductsSearchRequest>({
       query: ({ search, queryParams }) => {
