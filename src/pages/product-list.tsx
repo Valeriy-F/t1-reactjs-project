@@ -30,7 +30,12 @@ const ProductList = () => {
   };
 
   return (
-    <ProductListTemplate productListData={productListData} searchFormData={searchFormData} isLoading={isLoading} />
+    <ProductListTemplate
+      productListData={productListData}
+      searchFormData={searchFormData}
+      isLoading={isLoading}
+      data-testid={"product-list-page"}
+    />
   );
 };
 

@@ -1,4 +1,5 @@
 import { Line } from "../../atoms";
+import { TNavMenuItem } from "../../molecules";
 import { Quiz } from "../../organisms";
 import Footer from "../../organisms/footer/footer";
 import Header from "../../organisms/header/header";
@@ -10,29 +11,12 @@ import Team from "../../organisms/sections/team/team";
 
 import styles from "./home.module.css";
 
-const headerMenuItems = [
-  { title: "Catalog", url: "#catalog-section", isAnchor: true },
-  { title: "About us", url: "#about-us-section", isAnchor: true },
-  { title: "Product selection", url: "#quiz-section", isAnchor: true },
-  { title: "Our team", url: "#our-team-section", isAnchor: true },
-  { title: "FAQ", url: "#faq-section", isAnchor: true },
-  { title: "For staff", url: "products" },
-];
+type THomePageProps = {
+  headerMenuItems?: TNavMenuItem[];
+  footerMenuItems?: TNavMenuItem[];
+};
 
-const footerMenuItems = [
-  { title: "Catalog", url: "#catalog-section", isAnchor: true },
-  { title: "About us", url: "#about-us-section", isAnchor: true },
-  { title: "Product selection", url: "#quiz-section", isAnchor: true },
-  { title: "Our team", url: "#our-team-section", isAnchor: true },
-  { title: "FAQ", url: "#faq-section", isAnchor: true },
-];
-
-const faqSectionData = [
-  { quastion: "Question 1", answer: "Long answer to the first question." },
-  { quastion: "Question 2", answer: "Long answer to the second question." },
-];
-
-const Home = () => {
+const Home = ({ headerMenuItems = [], footerMenuItems = [] }: THomePageProps) => {
   return (
     <>
       <header className="header">
@@ -69,7 +53,7 @@ const Home = () => {
         </section>
         <section id="faq-section" className={styles["faq-section"]}>
           <div className="container">
-            <Faq data={faqSectionData} />
+            <Faq />
           </div>
         </section>
       </main>
