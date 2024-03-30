@@ -79,4 +79,10 @@ const parseNumber = (value: number | string, toFixedNumber = 0) => {
   return toFixedNumber <= 0 ? parseInt(fixedValue) : parseFloat(fixedValue);
 };
 
-export { applyDiscount, applySorting, debounce, intToLeadingZerosString, parseNumber, toKey };
+const stringToKebabCase = (value: string) =>
+  value
+    .trim()
+    .replace(/([a-z])([A-Z])|\s|\/|:/g, "$1-$2")
+    .toLowerCase();
+
+export { applyDiscount, applySorting, debounce, intToLeadingZerosString, parseNumber, stringToKebabCase, toKey };

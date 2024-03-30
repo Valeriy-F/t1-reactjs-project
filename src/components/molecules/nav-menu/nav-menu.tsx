@@ -1,4 +1,4 @@
-import { HTMLAttributes } from "react";
+import { HTMLAttributes, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
@@ -20,16 +20,20 @@ type TNavMenuProps = HTMLAttributes<HTMLElement> & {
 };
 
 const NavMenu = ({ items, className, color = "primary", slideDirection = "down", ...otherProps }: TNavMenuProps) => {
+  const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
   const extraClasses = className ? ` ${className}` : "";
-  const toggleButtonKey = "menu-toggle_" + Math.random();
 
   return (
-    <nav className={styles["nav-menu"] + extraClasses} {...otherProps}>
-      <NavLink to="/" className={styles["link-logo"]}>
+    <nav className={styles["nav-menu"] + extraClasses} {...otherProps} data-testid="nav-menu">
+      <NavLink to="/" className={styles["link-logo"]} data-testid="logo-link">
         <Logo />
       </NavLink>
-      <input id={toggleButtonKey} className={styles["menu-toggle"]} type="checkbox" />
-      <label className={styles["menu-button-container"]} htmlFor={toggleButtonKey}>
+      <label
+        className={`${styles["menu-button-container"]} ${isBurgerMenuOpen && styles["burger-menu_open"]}`}
+        onClick={() => {
+          setIsBurgerMenuOpen(!isBurgerMenuOpen);
+        }}
+      >
         <div className={styles["menu-button"]}></div>
       </label>
       <ul className={`${styles["menu"]} ${styles["menu_" + color]} ${styles["menu_" + slideDirection]}`}>
@@ -40,9 +44,19 @@ const NavMenu = ({ items, className, color = "primary", slideDirection = "down",
             </Typography>
           );
 
+          const menuLinkClassName = styles["menu-link"];
+
           return (
-            <li key={toKey(title)} className="menu-item">
-              {isAnchor ? <HashLink to={url}>{linkTitle}</HashLink> : <NavLink to={url}>{linkTitle}</NavLink>}
+            <li key={toKey(title)} className={`${styles["menu-item"]} ${styles["menu-item_" + color]}`}>
+              {isAnchor ? (
+                <HashLink to={url} className={menuLinkClassName}>
+                  {linkTitle}
+                </HashLink>
+              ) : (
+                <NavLink to={url} className={menuLinkClassName}>
+                  {linkTitle}
+                </NavLink>
+              )}
             </li>
           );
         })}
