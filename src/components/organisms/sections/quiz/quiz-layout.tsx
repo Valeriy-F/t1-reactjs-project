@@ -29,7 +29,7 @@ const QuizLayout = ({
   });
 
   return (
-    <div className={styles["content-container"]}>
+    <div className={styles["content-container"]} data-testid="quiz-layout">
       <div className={styles.header}>
         {title && (
           <div>

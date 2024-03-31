@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NavMenu test NavMenu items should be rendered with appropriate title and url 1`] = `
+exports[`NavMenu tests NavMenu items should be rendered with appropriate title and url 1`] = `
 <nav
   class="nav-menu"
   data-testid="nav-menu"

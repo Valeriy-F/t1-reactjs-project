@@ -4,7 +4,7 @@ import styles from "./about.module.css";
 
 const About = () => {
   return (
-    <div className={styles["content-container"]}>
+    <div className={styles["content-container"]} data-testid="about">
       <div className={styles.title}>
         <Typography variant={TypographyVariant.H2} color="secondary">
           About us

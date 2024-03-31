@@ -4,7 +4,7 @@ import renderWithRouter from "../../../tests/helpers/render-with-router";
 
 import NavMenu from "./nav-menu";
 
-describe("NavMenu test", () => {
+describe("NavMenu tests", () => {
   test("NavMenu items should be rendered with appropriate title and url", () => {
     const navMenuItems = [
       { title: "page-1", url: "page-1-url" },
