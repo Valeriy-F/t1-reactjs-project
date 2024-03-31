@@ -1,7 +1,7 @@
 import { ChangeEventHandler, FormEventHandler, useState } from "react";
 
 import { IProduct, TProductAware } from "../../../models/product";
-import { Button, InputMoney, InputNumber, InputPercentages, InputText } from "../../atoms";
+import { Button, InputMoney, InputNumber, InputPercentages, InputText, TextArea } from "../../atoms";
 import {
   ProductDetailsActionsButtonsBlock,
   ProductDetailsDiscount,
@@ -33,7 +33,7 @@ const ProductDetailsEditForm = ({ product, onFormSubmit }: TProductEditFormProps
     setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  const onFormElementChaange: ChangeEventHandler<HTMLInputElement> = (e) => {
+  const onFormElementChaange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
     const { name, value } = e.target;
 
     setFormElementData(name as keyof TProductEditFormData, value);
@@ -101,7 +101,11 @@ const ProductDetailsEditForm = ({ product, onFormSubmit }: TProductEditFormProps
         />
         <ProductDetailsItem
           name="Description"
-          value={<InputText name="description" value={formData.description} onChange={onFormElementChaange} />}
+          value={
+            <TextArea name="description" rows={5} onChange={onFormElementChaange}>
+              {formData.description}
+            </TextArea>
+          }
           justifyItems="space-between"
         />
         <ProductDetailsActionsButtonsBlock>
