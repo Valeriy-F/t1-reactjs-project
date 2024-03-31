@@ -56,6 +56,23 @@ const productApi = baseApi.injectEndpoints({
       transformErrorResponse: transformErrorResponseBuilder(
         createProductResponseDataTransform("Failed to fetch products")
       ),
+      serializeQueryArgs: ({ endpointName }) => {
+        return endpointName;
+      },
+      merge: (currentState, newProductsResponse) => {
+        if (newProductsResponse.skip === 0) {
+          return newProductsResponse;
+        }
+
+        currentState.products.push(...newProductsResponse.products);
+        currentState.limit = newProductsResponse.limit;
+        currentState.total = newProductsResponse.total;
+
+        return currentState;
+      },
+      forceRefetch({ currentArg, previousArg }) {
+        return currentArg !== previousArg;
+      },
     }),
     getProductsBySearch: build.query<IProductsResponse, IProductsSearchRequest>({
       query: ({ search, queryParams }) => {
@@ -65,6 +82,23 @@ const productApi = baseApi.injectEndpoints({
           url: "products/search",
           params,
         };
+      },
+      serializeQueryArgs: ({ endpointName }) => {
+        return endpointName;
+      },
+      merge: (currentState, newProductsResponse) => {
+        if (newProductsResponse.skip === 0) {
+          return newProductsResponse;
+        }
+
+        currentState.products.push(...newProductsResponse.products);
+        currentState.limit = newProductsResponse.limit;
+        currentState.total = newProductsResponse.total;
+
+        return currentState;
+      },
+      forceRefetch({ currentArg, previousArg }) {
+        return currentArg !== previousArg;
       },
     }),
     getProducsCategories: build.query<string[], null>({

@@ -1,31 +1,33 @@
 import { debounce } from "../app/app-utils";
 import { ISearchFormData } from "../components/molecules/search-form/search-form";
-import { ProductListTemplate, ResponseErrorTemplate, TProductListTemplateProps } from "../components/templates";
+import { ProductListTemplate, TProductListTemplateProps } from "../components/templates";
 import { IResponseError } from "../models/app";
 import { useSearchProductsQuery } from "../store/product";
 
 const ProductList = () => {
-  const { products, error, isError, isLoading, isAllDataFetched, fetchMoreData, updateProductsQueryData } =
+  const { products, error, isLoading, isFetching, isAllDataFetched, fetchMoreData, updateProductsQueryData } =
     useSearchProductsQuery();
 
-  if (isError) {
-    return <ResponseErrorTemplate response={error as IResponseError} />;
-  }
+  const isLoadingState = isLoading || isFetching;
 
   const productListData: TProductListTemplateProps["productListData"] = products
     ? {
         products,
         isAllDataFetched,
-        onShowMoreClick: fetchMoreData,
+        isLoading: isLoadingState,
+        onShowMoreClick: () => {
+          fetchMoreData();
+        },
       }
     : {};
 
   const searchFormData: TProductListTemplateProps["searchFormData"] = {
+    isLoading: isLoadingState,
     onFormSubmit: (formData: ISearchFormData) => {
-      updateProductsQueryData({ title: formData.inputValue });
+      updateProductsQueryData({ title: formData.inputValue }, null);
     },
     onInputValueChange: debounce((value: string) => {
-      updateProductsQueryData({ title: value });
+      updateProductsQueryData({ title: value }, null);
     }, 300),
   };
 
@@ -33,7 +35,8 @@ const ProductList = () => {
     <ProductListTemplate
       productListData={productListData}
       searchFormData={searchFormData}
-      isLoading={isLoading}
+      isLoading={isLoadingState}
+      error={error as IResponseError}
       data-testid={"product-list-page"}
     />
   );

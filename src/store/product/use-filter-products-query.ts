@@ -18,6 +18,7 @@ const useFilterProductsQuery = () => {
     error,
     isError,
     isLoading,
+    isFetching,
     data: response,
   } = useGetProductsByFilterQuery({ filter: productsFilter, queryParams: productsQueryParams });
 
@@ -25,7 +26,7 @@ const useFilterProductsQuery = () => {
   let isAllDataFetched = false;
 
   const fetchMoreData = () => {
-    updateProductsQueryData({}, { limit: (productsQueryParams.limit || 0) + dataPerFetch });
+    updateProductsQueryData({}, { limit: dataPerFetch, skip: products.length });
   };
 
   const updateProductsQueryData = (
@@ -49,7 +50,7 @@ const useFilterProductsQuery = () => {
   return {
     error,
     isError,
-    isLoading,
+    isLoading: isLoading || isFetching,
     products,
     productsFilter,
     isAllDataFetched,

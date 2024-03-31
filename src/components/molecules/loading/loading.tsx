@@ -4,8 +4,8 @@ import styles from "./loading.module.css";
 
 type TLoadingProps = PropsWithChildren & {
   contentPlacement?: "incolumn" | "inline";
-  color?: "primary" | "secondary";
-  size?: "md" | "sm" | "lg";
+  color?: "primary" | "secondary" | "tertiary";
+  size?: "xs" | "sm" | "md" | "lg";
 };
 
 type TLoadingBlockProps = TLoadingProps & {

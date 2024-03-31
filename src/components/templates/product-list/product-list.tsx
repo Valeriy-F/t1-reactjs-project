@@ -1,6 +1,7 @@
+import { IResponseError } from "../../../models/app";
 import { Typography, TypographyVariant } from "../../atoms";
 import { LoadingBlock, SearchForm, TSearchFormProps } from "../../molecules";
-import { ProductList, TProductListProps } from "../../organisms";
+import { ProductList, ResponseErrorBlock, TProductListProps } from "../../organisms";
 import BaseTemplate from "../base-template/base-template";
 
 import styles from "./product-list.module.css";
@@ -9,16 +10,26 @@ type TProductListTemplateProps = {
   productListData: TProductListProps;
   searchFormData: TSearchFormProps;
   isLoading?: boolean;
+  error?: IResponseError;
 };
 
-const ProductListTemplate = ({ isLoading = false, productListData, searchFormData }: TProductListTemplateProps) => {
-  let content = productListData.products?.length ? (
-    <ProductList {...productListData} listClassName={styles["product-list-grid"]} />
-  ) : (
-    <Typography variant={TypographyVariant.TEXT_LG}>No results found</Typography>
-  );
+const ProductListTemplate = ({
+  error,
+  productListData,
+  searchFormData,
+  isLoading = false,
+}: TProductListTemplateProps) => {
+  let content = <></>;
 
-  content = isLoading ? <LoadingBlock blockSize="sm">Product list loading...</LoadingBlock> : content;
+  if (error) {
+    content = <ResponseErrorBlock response={error} />;
+  } else if (productListData.products?.length) {
+    content = <ProductList {...productListData} listClassName={styles["product-list-grid"]} />;
+  } else if (!isLoading) {
+    content = <Typography variant={TypographyVariant.TEXT_LG}>No results found</Typography>;
+  } else {
+    content = <LoadingBlock blockSize="sm">Product list loading...</LoadingBlock>;
+  }
 
   return (
     <BaseTemplate title="All Products">

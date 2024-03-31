@@ -35,10 +35,16 @@
 }
 
 .loader {
-  border-color: var(--color-gray-light2);
+  border-color: var(--color-gray-light3);
   border-style: solid;
   border-radius: 50%;
   animation: spin 2s linear infinite;
+}
+
+.loader-size-xs {
+  border-width: 2px;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .loader-size-sm {
@@ -65,6 +71,10 @@
 
 .loader-color-secondary {
   border-top-color: var(--color-orange);
+}
+
+.loader-color-tertiary {
+  border-top-color: var(--color-purple-blue);
 }
 
 @keyframes spin {

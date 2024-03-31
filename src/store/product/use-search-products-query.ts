@@ -18,6 +18,7 @@ const useSearchProductsQuery = () => {
     error,
     isError,
     isLoading,
+    isFetching,
     data: response,
   } = useGetProductsBySearchQuery({ search: productsSearch, queryParams: productsQueryParams });
 
@@ -25,7 +26,7 @@ const useSearchProductsQuery = () => {
   let isAllDataFetched = false;
 
   const fetchMoreData = () => {
-    updateProductsQueryData({}, { limit: (productsQueryParams.limit || 0) + dataPerFetch });
+    updateProductsQueryData({}, { limit: dataPerFetch, skip: products.length });
   };
 
   const updateProductsQueryData = (
@@ -50,6 +51,7 @@ const useSearchProductsQuery = () => {
     error,
     isError,
     isLoading,
+    isFetching,
     products,
     productsSearch,
     isAllDataFetched,

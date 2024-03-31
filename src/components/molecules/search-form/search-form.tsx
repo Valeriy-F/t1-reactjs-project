@@ -10,6 +10,7 @@ interface ISearchFormData {
 
 type TSearchFormProps = {
   size?: "sm" | "md" | "lg";
+  isLoading?: boolean;
   onFormSubmit?: (formData: ISearchFormData) => void;
   onInputValueChange?: (inputValue: string) => void;
 };
@@ -21,10 +22,6 @@ const SearchForm = ({ size = "md", onFormSubmit, onInputValueChange }: TSearchFo
     <form
       onSubmit={(e) => {
         e.preventDefault();
-
-        if (inputValue === "") {
-          return;
-        }
 
         onFormSubmit && onFormSubmit({ inputValue });
       }}
