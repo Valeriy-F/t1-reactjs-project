@@ -5,6 +5,7 @@ import styles from "./typography.module.css";
 type TTypographyProps = PropsWithChildren & {
   variant?: ETypographyVariant;
   color?: "primary" | "primary-light" | "secondary" | "important";
+  className?: string;
 };
 
 type TTypographyComponent = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p";
@@ -26,7 +27,12 @@ enum ETypographyVariant {
   TEXT_XL_BOLD = "text-xl_bold",
 }
 
-const Typography = ({ children, variant = ETypographyVariant.TEXT, color = "primary" }: TTypographyProps) => {
+const Typography = ({
+  children,
+  className,
+  variant = ETypographyVariant.TEXT,
+  color = "primary",
+}: TTypographyProps) => {
   let TypographyComponent: TTypographyComponent = "p";
 
   switch (variant) {
@@ -42,7 +48,9 @@ const Typography = ({ children, variant = ETypographyVariant.TEXT, color = "prim
   const stylesVariant = styles[`variant-${variant}`];
   const styleColor = styles[`color-${color}`];
 
-  return <TypographyComponent className={`${stylesVariant} ${styleColor}`}>{children}</TypographyComponent>;
+  className = className ? ` ${className}` : "";
+
+  return <TypographyComponent className={`${stylesVariant} ${styleColor}${className}`}>{children}</TypographyComponent>;
 };
 
 export default Typography;

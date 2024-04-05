@@ -65,10 +65,16 @@ const ProductFilter = ({
             />
           </div>
           <div className={styles.actions}>
-            <Button type="submit" size="lg">
+            <Button type="submit" size="lg" disabled={!checkedCategory}>
               Apply
             </Button>
-            <Button type="reset" variant="link" color="primary-transparent" onClick={onFormReset}>
+            <Button
+              type="reset"
+              variant="link"
+              color="primary-transparent"
+              onClick={onFormReset}
+              disabled={!checkedCategory}
+            >
               Reset
             </Button>
           </div>

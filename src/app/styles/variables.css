@@ -8,15 +8,19 @@
   --color-gray-light: #808080;
   --color-gray-light2: #B2B5BB;
   --color-gray-light3: #F6F6F6;
+  --color-gray-dark: #323945;
   --color-white: #FFFFFF;
   --color-purple-blue: #484283;
   --color-orange: #F14F4F;
+  --color-orange-light: #FFC7BB;
+  --color-orange-dark: #CD2B35;
   --color-yellow: #FFF4EE;
   --color-brown-light: #DBBBA9;
 
   --text-color-primary: var(--color-gray);
   --text-color-primary-light: var(--color-gray-light);
   --text-color-secondary: var(--color-white);
+  --text-color-secondary-dark: var(--color-gray-light3);
   --text-color-important: var(--color-orange);
 
   --font-size-sm: 0.875rem;

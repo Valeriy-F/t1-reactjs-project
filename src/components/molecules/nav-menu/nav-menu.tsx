@@ -36,10 +36,14 @@ const NavMenu = ({ items, className, color = "primary", slideDirection = "down",
       >
         <div className={styles["menu-button"]}></div>
       </label>
-      <ul className={`${styles["menu"]} ${styles["menu_" + color]} ${styles["menu_" + slideDirection]}`}>
+      <ul className={`${styles["menu"]} ${styles["menu_" + slideDirection]}`}>
         {items.map(({ title, url, isAnchor = false }) => {
           const linkTitle = (
-            <Typography variant={TypographyVariant.TEXT_SM_BOLD} color="secondary">
+            <Typography
+              variant={TypographyVariant.TEXT_SM_BOLD}
+              color="secondary"
+              className={styles["menu-item__text"]}
+            >
               {title}
             </Typography>
           );
