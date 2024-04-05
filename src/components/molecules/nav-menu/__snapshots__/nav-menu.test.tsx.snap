@@ -33,7 +33,7 @@ exports[`NavMenu tests NavMenu items should be rendered with appropriate title a
     />
   </label>
   <ul
-    class="menu menu_primary menu_down"
+    class="menu menu_down"
   >
     <li
       class="menu-item menu-item_primary"
@@ -43,7 +43,7 @@ exports[`NavMenu tests NavMenu items should be rendered with appropriate title a
         href="/page-1-url"
       >
         <p
-          class="variant-text-sm_bold color-secondary"
+          class="variant-text-sm_bold color-secondary menu-item__text"
         >
           page-1
         </p>
@@ -57,7 +57,7 @@ exports[`NavMenu tests NavMenu items should be rendered with appropriate title a
         href="/page-2-url"
       >
         <p
-          class="variant-text-sm_bold color-secondary"
+          class="variant-text-sm_bold color-secondary menu-item__text"
         >
           page-2
         </p>
