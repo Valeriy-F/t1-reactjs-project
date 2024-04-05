@@ -68,6 +68,11 @@
 
 .link-logo {
   display: inline-flex;
+  transition: transform 0.35s;
+}
+
+.link-logo:hover {
+  transform: scale(1.1);
 }
 
 @media (max-width: 767px) {
