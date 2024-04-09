@@ -101,11 +101,7 @@ const ProductDetailsEditForm = ({ product, onFormSubmit }: TProductEditFormProps
         />
         <ProductDetailsItem
           name="Description"
-          value={
-            <TextArea name="description" rows={5} onChange={onFormElementChaange}>
-              {formData.description}
-            </TextArea>
-          }
+          value={<TextArea name="description" rows={5} onChange={onFormElementChaange} value={formData.description} />}
           justifyItems="space-between"
         />
         <ProductDetailsActionsButtonsBlock>

@@ -12,12 +12,28 @@ import {
 } from "../../models/product";
 import { baseApi, transformErrorResponseBuilder } from "../api";
 
-const generateSelectQueryParams = ({ limit = 0, skip = 0, select = [] }: IProductsQueryParams) => {
-  return {
-    limit,
-    skip,
-    select: select.join(","),
-  };
+type TSelectQueryParams = {
+  limit?: number;
+  skip?: number;
+  select?: string;
+};
+
+const generateSelectQueryParams = ({ limit, skip, select }: IProductsQueryParams) => {
+  const params: TSelectQueryParams = {};
+
+  if (limit) {
+    params.limit = limit;
+  }
+
+  if (skip) {
+    params.skip = skip;
+  }
+
+  if (select && select.length > 0) {
+    params.select = select.join(",");
+  }
+
+  return params;
 };
 
 const createProductResponseDataTransform = (fallbackMessage = "") => {

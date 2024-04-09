@@ -14,7 +14,7 @@ const filterProductsQueryDataInitialState = {
     category: null,
   },
   queryParams: {
-    limit: 2,
+    limit: 9,
     skip: 0,
     select: [],
   },
