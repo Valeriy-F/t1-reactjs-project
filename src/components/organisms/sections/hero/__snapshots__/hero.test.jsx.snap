@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero section tests Hero section snapshots 1`] = `
+<div
+  class="content-container"
+  data-testid="hero"
+>
+  <div
+    class="title"
+  >
+    <h1
+      class="variant-h1 color-secondary"
+    >
+      Any products from famous brands with worldwide delivery
+    </h1>
+  </div>
+  <div
+    class="subtitle"
+  >
+    <p
+      class="variant-text_bold color-secondary"
+    >
+      We sell smartphones, laptops, clothes, shoes and many other products at low prices
+    </p>
+  </div>
+  <div
+    class="actions"
+  >
+    <a
+      aria-label="Go to shopping"
+      class="base variant-button size-lg color-secondary "
+      href="/products"
+    >
+      Go to shopping
+    </a>
+  </div>
+</div>
+`;

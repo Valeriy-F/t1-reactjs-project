@@ -1,0 +1,16 @@
+.product-list-container {
+  background-color: var(--color-brown-light);
+  padding: 35px 40px;
+}
+
+.product-list-grid {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .product-list-grid {
+    grid-template-columns: auto;
+  }
+}

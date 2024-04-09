@@ -1,0 +1,25 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-image {
+  max-height: 400px;
+  border-radius: var(--border-radius);
+}
+
+.title {
+  padding: 10px 0 2px;
+}
+
+.overlay {
+  border-radius: var(--border-radius);
+}

@@ -1,0 +1,13 @@
+.content-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+  padding: 25px 0 0;
+}
+
+@media (max-width: 575px) {
+  .content-container {
+    grid-template-columns: 100%;
+    row-gap: 10px;
+  }
+}

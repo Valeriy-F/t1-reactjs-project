@@ -1,0 +1,19 @@
+.image-container {
+    position: relative;
+}
+
+.image-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-title {
+    margin: 10px;
+}
+
+.image-overlay,
+.image {
+    border-radius: var(--border-radius);
+}

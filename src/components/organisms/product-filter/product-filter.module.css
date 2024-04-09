@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: var(--color-yellow);
+    border-radius: var(--border-radius);
+    padding: 9px 7%;
+}
+
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1px;
+    padding: 25px 0 33px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    row-gap: 19px;
+}

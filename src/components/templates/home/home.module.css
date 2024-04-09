@@ -1,0 +1,27 @@
+.hero-section {
+    background-color: var(--color-purple-blue);
+}
+
+.catalog-section {
+    padding: 53px 0 51px;
+}
+
+.about-section {
+    background-color: var(--color-purple-blue);
+    background-image: url('../../../images/about_bg_figure.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+
+.quiz-section {
+    padding: 60px 0;
+}
+
+.team-section {
+    background-color: var(--color-purple-blue);
+    background-image: url('../../../images/team_bg_figure.svg');
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-position: right top;
+}

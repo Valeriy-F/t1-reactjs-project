@@ -1,0 +1,13 @@
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 20px;
+  width: 100%;
+}
+
+.title,
+.subtitle {
+  text-align: center;
+}

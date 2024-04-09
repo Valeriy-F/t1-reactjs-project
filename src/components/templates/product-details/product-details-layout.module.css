@@ -1,0 +1,27 @@
+.product-details-container {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  gap: 40px;
+}
+
+.product-details__info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info__title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .product-details-container {
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto;
+  }
+}

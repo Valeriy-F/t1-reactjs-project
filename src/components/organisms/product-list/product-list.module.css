@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 0 0;
+}
